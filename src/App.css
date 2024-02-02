@@ -1,0 +1,70 @@
+.bg-caption{
+    background-color: rgba(145, 145, 145, 0.3);
+}
+.text-capt{
+    color: rgba(255, 255, 255, 0.8);
+}
+.title-bpi{
+    color: rgba(70, 70, 70, 0.8);
+}
+.bg-vm{
+    background-color: #282666;
+    color: white;
+}
+.bg-bpi{
+    background-image: url(./assets/bg1.png);
+    background-size: cover;
+}
+.dept-kpsdm{
+    background-image: url(./assets/family.jpg);
+    background-size: contain;
+    
+}
+.dept-inkref{
+    background-image: url(./assets/INKREF.jpg);
+    background-size: contain;
+    
+}
+.personalia{
+    background-image: url(./assets/personalia.jpeg);
+    background-size: contain;
+    
+}
+.relekat{
+    background-image: url(./assets/relekat.jpg);
+    background-size: contain;
+    
+}
+.rppm{
+    background-image: url(./assets/rkmb.jpg);
+    background-size: contain;
+    
+}
+.kominfo{
+    background-image: url(./assets/kominfo.jpg);
+    background-size: contain;
+}
+.dept{
+    font-weight: bold;
+    opacity: 0.8;
+    color: white;
+}
+.dept:hover{
+    background-color: rgba(50, 50, 50, 1);
+    background-blend-mode: multiply; 
+    color: white;
+    font-weight: lighter;
+    font-size: medium;
+}
+.dept-image{
+    height: 18rem;
+}
+.item-carou{
+    height: 30rem;
+}
+.bg-about{
+    background-image: url(./assets/bg-blue/bg1.jpg);
+    background-size: cover;
+    opacity: 0.9;
+    color: white;
+}
