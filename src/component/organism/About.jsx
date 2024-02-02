@@ -2,7 +2,7 @@ import logo from '../../assets/inforsa.png'
 
 function About(){
     return(
-        <div id='About' className='flex justify-evently text-center container my-5 p-5 rounded-lg shadow-xl bg-about'>
+        <div id='About' className='flex flex-col sm:flex-row justify-evently text-center container my-5 p-5 rounded-lg shadow-xl bg-about'>
             <img className='h-80' src={logo} alt="" />
             <div className='flex items-center justify-start text-left'>
                 <div>

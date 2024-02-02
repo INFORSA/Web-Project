@@ -2,10 +2,10 @@ import image from '../../assets/inforsa.png'
 
 function Article(){
     return(
-    <div className="min-h-screen container">
-        <div className="text-center text-4xl font-bold">Posts</div>
-        <div className='flex justify-center my-5'>
-        <div className='mx-3 bg-gray-500 w-96 rounded-lg'>
+    <div className="container">
+        <div className="text-center text-4xl font-bold">Publikasi Kegiatan</div>
+        <div className='flex justify-center grid gap-5 lg:grid-cols-3 md:grid-cols-2 my-3'>
+        <div className='mx-3 sm:mx-0 bg-gray-500 w-96 rounded-lg'>
             <div className='rounded-lg h-72 w-96 bg-gray-500 flex justify-center items-center'>
                 <img width={150} src={image} alt="" />
             </div>
@@ -14,7 +14,7 @@ function Article(){
                 <div className='text-md font-light'>Deskripsi</div>
             </div>
         </div>
-        <div className='mx-3 bg-gray-500 w-96 rounded-lg'>
+        <div className='mx-3 sm:mx-0 bg-gray-500 w-96 rounded-lg'>
             <div className='rounded-lg h-72 w-96 bg-gray-500 flex justify-center items-center'>
                 <img width={150} src={image} alt="" />
             </div>
@@ -23,7 +23,7 @@ function Article(){
                 <div className='text-md font-light'>Deskripsi</div>
             </div>
         </div>
-        <div className='mx-3 bg-gray-500 w-96 rounded-lg'>
+        <div className='mx-3 sm:mx-0 bg-gray-500 w-96 rounded-lg'>
             <div className='rounded-lg h-72 w-96 bg-gray-500 flex justify-center items-center'>
                 <img width={150} src={image} alt="" />
             </div>
@@ -33,7 +33,7 @@ function Article(){
             </div>
         </div>
         </div>
-        <div className=' flex justify-center'>
+        <div className='flex justify-center'>
             <div className='border border-black w-fit p-2 rounded-md text-black'>More</div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 function Question(){
     return(
-        <div className='flex items-center justify-between text-center container rounded-lg shadow-xl mx-5 mb-5 p-5 bg-about'>
+        <div className='flex flex-col sm:flex-row items-center justify-between text-center container rounded-lg shadow-xl my-5 p-5 bg-about'>
             <div className='flex items-center justify-start ml-5 text-left'>
                 <div className="">
                     <div className='text-3xl font-extrabold'>Ada pertanyaan?</div>

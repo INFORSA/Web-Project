@@ -22,9 +22,9 @@ function Footer() {
           <p>Samarinda</p>
           <p>75119</p>
         </div>
-        <div className="w-full md:w-1/3 text-center md:text-center">
+        <div className="w-full md:w-1/3 text-center">
           <h2 className="text-lg font-semibold mb-3">Video Profile</h2>
-          <div className="embed-responsive aspect-ratio-16/9">
+          <div className="embed-responsive aspect-ratio-16/9 flex justify-center">
             <iframe
               className="embed-responsive-item"
               title="YouTube Video"

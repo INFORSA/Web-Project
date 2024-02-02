@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Depart from "../../data/Depart";
 import Axios from "axios";
 import image from '../../assets/inforsa.PNG'
+import { Button } from "react-bootstrap";
 
 
 function Kpsdm(){
@@ -45,12 +46,12 @@ function Kpsdm(){
                     </div>
                     <div className="my-3 bg-cyan-950 flex justify-around items-center text-white px-3 py-4 rounded-lg">
                         <div>
-                            <div>Program Kerja</div>
-                            <div className="text-center">0</div>
+                            <h2>Program Kerja</h2>
+                            <h3 className="text-center">0</h3>
                         </div>
                         <div>
-                            <div>Anggota</div>
-                            <div className="text-center">0</div>
+                            <h2>Anggota</h2>
+                            <h3 className="text-center">0</h3>
                         </div>
                     </div>
                 </div>
@@ -61,20 +62,25 @@ function Kpsdm(){
             <article className="my-5">
                 <h2 className="text-3xl font-md">Publikasi Kegiatan</h2>
                 <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
-                    {getKonten.map((item,idx)=>(
-                        <div key={idx}>
-                        <div className='mx-3 bg-gray-500 w-96 rounded-lg'>
-                        <div className='rounded-lg flex justify-center items-center'>
-                            <img className="max-h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
-                        </div>
-                        <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-96 bg-gray-300'>
-                            <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
-                            <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
-                            <h4 className='text-sm font-light'>{item.Depart}</h4>
-                        </div>
-                        </div>
-                        </div>
-                    ))}
+                    {getKonten.map((item,idx)=>{
+                        if(item.Depart === 'KPSDM'){
+                            return(
+                                <div key={idx} className='mx-3 bg-gray-500 w-96 rounded-lg'>
+                                <div className='rounded-lg flex justify-center items-center'>
+                                    <img className="max-h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
+                                </div>
+                                <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-96 bg-gray-300'>
+                                    <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
+                                    <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
+                                    <div className="flex justify-between items-start text-right">
+                                        <h4 className='text-sm font-thin'>Dirilis oleh Departemen {item.Depart}</h4>
+                                        <Button className="my-2 text-sm text-black mx-2" variant="secondary">Read More</Button>
+                                    </div>
+                                </div>
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
             </article>
         </div>

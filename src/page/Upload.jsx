@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import Swal from "sweetalert2";
 
 function Upload() {
   const [judul, setJudul] = useState("");
@@ -41,7 +42,11 @@ function Upload() {
         body: formData,
       });
         if (response.ok) {
-            alert("Artikel berhasil ditambahkan")
+            Swal.fire({
+              title: "Berhasil",
+              text: "Artikel berhasil ditambahkan",
+              icon: "success"
+            });
         } 
         else {
             const errorMessage = await response.text();
@@ -109,7 +114,7 @@ function Upload() {
 
         <ReactQuill theme="snow" value={isi} onChange={setIsi} />
 
-        <Button onClick={handleInsert} type="submit" variant="contained" color="primary" style={{ marginTop: "16px" }}>
+        <Button onClick={handleInsert} type="button" variant="contained" color="primary" style={{ marginTop: "16px" }}>
           Upload
         </Button>
       </form>

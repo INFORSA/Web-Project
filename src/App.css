@@ -59,12 +59,19 @@
 .dept-image{
     height: 18rem;
 }
-.item-carou{
-    height: 30rem;
+@media (max-width: 480px) {
+    .bg-bpi{
+        background-image: url(./assets/bg2.png);
+        background-size: cover;
+    }
 }
 .bg-about{
     background-image: url(./assets/bg-blue/bg1.jpg);
     background-size: cover;
     opacity: 0.9;
     color: white;
+}
+.bg-login{
+    background-image: url(./assets/bg3.jpg);
+    background-size: cover;
 }

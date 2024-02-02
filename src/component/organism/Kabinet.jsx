@@ -4,7 +4,7 @@ function Kabinet() {
   return (
     <div className='rounded-lg shadow-xl m-3 p-2'>
         <div className='text-5xl text-center font-bold my-5'>Kabinet Kerja <br />2024</div>
-        <div className='flex items-center'>
+        <div className='flex flex-col sm:flex-row items-center'>
             <img src={kabinet} width={650} className='p-5' alt="" />
             <div className='ml-2'>
                 <div className='text-4xl font-bold'>

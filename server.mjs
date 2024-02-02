@@ -59,6 +59,13 @@ server.get('/api/get', (req, res) => {
     });
 });
 
+server.get('/api/getAcc', (req, res) => {
+  const sqlSelect = "SELECT * FROM admin";
+  db.query(sqlSelect, (err, result) => {
+      res.send(result);
+  });
+});
+
 // server.get('/api/getmenu', (req, res) => {
 //     const sqlSelect = "SELECT * FROM keranjang";
 //     db.query(sqlSelect, (err, result) => {

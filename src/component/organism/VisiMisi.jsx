@@ -4,7 +4,7 @@ import { Container} from 'react-bootstrap';
 function VisiMisi() {
 
   return (
-    <Container className='mb-5 h-screen flex justify-evenly w-full rounded-lg shadow-xl p-3'>
+    <Container className='mb-5 h-screen flex flex-col sm:flex-row md:flex-row justify-evenly w-full rounded-lg shadow-xl p-3'>
       <div className='flex items-center text-center text-3xl font-semibold rounded-md'>
         <div>
           Visi

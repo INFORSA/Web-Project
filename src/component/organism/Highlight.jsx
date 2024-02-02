@@ -9,22 +9,22 @@ function Highlight() {
     <Container className='p-5'>
     <div className='text-4xl my-3 text-center font-bold'>Highlights</div>
     <Carousel fade>
-      <Carousel.Item className='item-carou'>
-        <img src={image} alt="" />
+      <Carousel.Item>
+        <img className='object-cover h-96 w-full' src={image} alt="" />
         <Carousel.Caption className='bg-caption'>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item className='item-carou'>
-        <img src={image1} alt="" />
+      <Carousel.Item>
+        <img className='object-cover h-96 w-full' src={image1} alt="" />
         <Carousel.Caption className='bg-caption'>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item className='item-carou'>
-        <img src={image2} alt="" />
+      <Carousel.Item>
+        <img className='object-cover h-96 w-full' src={image2} alt="" />
         <Carousel.Caption className='bg-caption'>
           <h3>Third slide label</h3>
           <p>

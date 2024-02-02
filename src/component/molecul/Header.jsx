@@ -3,12 +3,35 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import INFORSA from '../../assets/inforsa.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Link as Linkdom } from 'react-scroll';
+import Swal from 'sweetalert2';
 
 function Header() {
+  const isLoggedIn = localStorage.getItem("token") !== null;
+  const navigate = useNavigate();
+  const logOut = () => {
+    Swal.fire({
+      title: "Are you sure to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        navigate("/");
+        Swal.fire({
+          title: "Logout Success",
+          icon: "success",
+        });
+      }
+    });
+  }
   return (
-    <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary h-16">
+    <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary sm:h-16 md:h-20">
+      <Container>
       <Link to='/'>
         <img
             src={INFORSA}
@@ -18,11 +41,10 @@ function Header() {
             alt="React Bootstrap logo"
           />
       </Link>
-      <Navbar.Brand href="#home" as={Link} to='/' className='ml-3 font-bold text-3xl'>
-          INFORSA
-          <div className='font-light text-sm'>Information System Association</div>
+      <Navbar.Brand href="#home" as={Link} to='/' className='mx-3 font-bold text-3xl sm:text-md md:text-2xl lg:text-3xl xl:text-4xl'>
+        INFORSA
+        <div className='font-light text-sm'>Information System Association</div>
       </Navbar.Brand>
-      <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -38,7 +60,13 @@ function Header() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link as={Link} to='Upload' href="#deets">Upload</Nav.Link>
+            {isLoggedIn?(
+            <>
+              <Nav.Link as={Link} to='Upload' href="#Upload">Upload</Nav.Link>
+              <Nav.Link onClick={logOut} href="#logout">Log Out</Nav.Link>
+            </>
+              )
+            :(<Nav.Link as={Link} to='Login' href="#Upload">Login</Nav.Link>)}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -17,8 +17,10 @@ import Relekat from './page/depart/Relekat'
 import Kominfo from './page/depart/Kominfo'
 import Inkref from './page/depart/Inkref'
 import Upload from './page/Upload'
+import Login from './page/Login'
 
 function App() {
+  const isLoggedIn = localStorage.getItem("token") !== null;
   return (
     <div> 
       <Header/>
@@ -42,7 +44,10 @@ function App() {
           <Route path='/RELEKAT' element={<Relekat/>}/>
           <Route path='/KOMINFO' element={<Kominfo/>}/>
           <Route path='/INKREF' element={<Inkref/>}/>
-          <Route path='/Upload' element={<Upload/>}/>
+          <Route path='/Login' element={<Login/>}/>
+          {isLoggedIn?(
+            <Route path='/Upload' element={<Upload/>}/>
+          ):(<Route path='/Upload' element={<Login/>}/>)}
         </Routes>
       </div>
       <Footer/>
