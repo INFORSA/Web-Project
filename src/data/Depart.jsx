@@ -1,8 +1,8 @@
-import KPSDM from '../assets/Depart/KPSDM.PNG'
-import RPPM from '../assets/Depart/RPPM.PNG'
-import INKREF from '../assets/Depart/INKREF.PNG'
-import KOMINFO from '../assets/Depart/KOMINFO.PNG'
-import RELEKAT from '../assets/Depart/RELEKAT.PNG'
+import KPSDM from '../assets/Depart/KPSDM.png'
+import RPPM from '../assets/Depart/RPPM.png'
+import INKREF from '../assets/Depart/INKREF.png'
+import KOMINFO from '../assets/Depart/KOMINFO.png'
+import RELEKAT from '../assets/Depart/RELEKAT.png'
 
 const Depart = [
     {
