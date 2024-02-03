@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Depart from "../../data/Depart";
 import Axios from "axios";
-import image from '../../assets/inforsa.PNG'
+import image from '../../assets/inforsa.png'
 import { Button } from "react-bootstrap";
 
 
@@ -36,7 +36,7 @@ function Relekat(){
                 </div>
             </div>
             <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">{Depart[2].depart}</h1>
-            <div className="flex justify-around items-center my-2">
+            <div className="flex flex-col sm:flex-row md:flex-row justify-around items-center my-2">
                 <div className="flex-1 pr-5">
                     <div className="bg-neutral-300 px-4 py-5 rounded-lg">
                         <h2 className="text-3xl font-md">Deskripsi Departemen</h2>
@@ -69,7 +69,7 @@ function Relekat(){
             </div>
             <article className="my-5">
                 <h2 className="text-3xl font-md">Publikasi Kegiatan</h2>
-                <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
+                <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 my-3">
                     {getKonten.map((item,idx)=>{
                         if(item.Depart === 'RELEKAT'){
                             return(
