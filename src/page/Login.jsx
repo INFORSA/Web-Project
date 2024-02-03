@@ -21,7 +21,6 @@ function Login(){
     const generateToken = () => {
         const timestamp = Date.now().toString();
         const randomString = Math.random().toString(36).substring(7);
-        // const tokenData = timestamp + randomString;
         const expirationTime = Date.now() + 60 * 60 * 1000;
         const tokenPayload = { timestamp, randomString, expirationTime };
       
