@@ -66,46 +66,6 @@ server.get('/api/getAcc', (req, res) => {
   });
 });
 
-// server.get('/api/getmenu', (req, res) => {
-//     const sqlSelect = "SELECT * FROM keranjang";
-//     db.query(sqlSelect, (err, result) => {
-//         res.send(result);
-//     });
-// });
-
-// server.get('/api/totalharga', (req, res) => {
-//     const sqlSelect = "SELECT SUM(Harga) as Totalharga, SUM(Jumlah) as Totaljumlah FROM keranjang";
-//     db.query(sqlSelect, (err, rows) => {
-//         res.send(rows);
-//     });
-// });
-
-// server.put('/api/update', (req, res) => {
-//     const { Menu, Jumlah, Harga } = req.body;
-//     const sqlUpdate = `UPDATE keranjang SET Jumlah = ${Jumlah}, Harga=${Harga} WHERE Menu ='${Menu}'`;
-//     db.query(sqlUpdate, (err, fields) => {
-//         if (err) throw err;
-//         if (fields.affectedRows) {
-//             response(200, 'INI UPDATE', 'BERHASIL', res);
-//         } else {
-//             console.log("gagal");
-//         }
-//         console.log(fields);
-//     });
-// });
-
-// server.delete('/api/del', (req, res) => {
-//     const sqlUpdate = `TRUNCATE TABLE keranjang`;
-//     db.query(sqlUpdate, (err, fields) => {
-//         if (err) throw err;
-//         if (fields.affectedRows) {
-//             console.log("gagal");
-//         } else {
-//             response(200, 'INI del', 'BERHASIL', res);
-//         }
-//     });
-// });
-
 db.connect((err) => {
     if (err) throw err;
     console.log("Sukses terhubung");

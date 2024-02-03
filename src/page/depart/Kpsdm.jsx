@@ -37,8 +37,8 @@ function Kpsdm(){
             </div>
             <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">{Depart[0].depart}</h1>
             <div className="flex flex-col sm:flex-row md:flex-row justify-around items-center my-2">
-                <div className="flex-1 pr-5">
-                    <div className="bg-neutral-300 px-4 py-5 rounded-lg">
+                <div className="flex-1 container">
+                    <div className="bg-neutral-300 px-4 py-4 rounded-lg">
                         <h2 className="text-3xl font-md">Deskripsi Departemen</h2>
                         <p className="text-lg text-justify font-light">
                             {Depart[0].deskripsi}

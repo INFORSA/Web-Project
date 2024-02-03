@@ -42,10 +42,12 @@ function Upload() {
         body: formData,
       });
         if (response.ok) {
-            Swal.fire({
+            await Swal.fire({
               title: "Berhasil",
               text: "Artikel berhasil ditambahkan",
               icon: "success"
+            }).then(() => {
+              window.location.href = '/';
             });
         } 
         else {
