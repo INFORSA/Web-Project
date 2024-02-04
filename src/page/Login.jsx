@@ -32,11 +32,32 @@ function Login(){
         const found = Acc.find(item => item.Username === Username && item.Pass === Password);
         const generatedToken = generateToken();
         console.log('Generated Token:', generatedToken);
-        localStorage.setItem('token', generateToken);
+        localStorage.setItem('token', generatedToken)
+        localStorage.setItem('ID', found.ID_Admin)
+        const Token = generatedToken
+        const ID = found.ID_Admin
+        const requestData = {
+            userId: ID,
+            userToken: Token
+          };
+        fetch('http://localhost:8000/api/auth', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respon dari server:', data);
+        })
+        .catch(error => {
+            console.error('Gagal melakukan permintaan ke server:', error);
+        });
         if(found){
             try {
                 await Swal.fire({
-                    title: "Berhasil Login?",
+                    title: "Berhasil Login",
                     text: "Welcome back Admin INFORSA",
                     icon: "success"
                   }).then(() => {

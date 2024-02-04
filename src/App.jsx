@@ -7,6 +7,7 @@ import Depart from './component/organism/Depart'
 import Footer from './component/molecul/Footer'
 import Header from './component/molecul/Header'
 import Highlight from './component/organism/Highlight'
+import Event from './component/organism/Event'
 import Kabinet from './component/organism/Kabinet'
 import Question from './component/organism/Question'
 import VisiMisi from './component/organism/VisiMisi'
@@ -18,6 +19,7 @@ import Kominfo from './page/depart/Kominfo'
 import Inkref from './page/depart/Inkref'
 import Upload from './page/Upload'
 import Login from './page/Login'
+import Proker from './page/Proker'
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -30,6 +32,7 @@ function App() {
             <>
             <LandingPage/>
             <About/>
+            <Event/>
             <Highlight/>
             <Kabinet/>
             <VisiMisi/>
@@ -46,8 +49,15 @@ function App() {
           <Route path='/INKREF' element={<Inkref/>}/>
           <Route path='/Login' element={<Login/>}/>
           {isLoggedIn?(
-            <Route path='/Upload' element={<Upload/>}/>
-          ):(<Route path='/Upload' element={<Login/>}/>)}
+            <>
+              <Route path='/Proker' element={<Proker/>}/>
+              <Route path='/Upload' element={<Upload/>}/>
+            </>
+            ):(<>
+              <Route path='/Proker' element={<Login/>}/>
+              <Route path='/Upload' element={<Login/>}/>
+            </>
+          )}
         </Routes>
       </div>
       <Footer/>

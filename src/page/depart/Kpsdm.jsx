@@ -3,15 +3,26 @@ import Depart from "../../data/Depart";
 import Axios from "axios";
 import image from '../../assets/inforsa.png'
 import { Button } from "react-bootstrap";
-
+import { Calendar,momentLocalizer } from "react-big-calendar";
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import moment from 'moment';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function Kpsdm(){
     useEffect(() => {
         getProducts();
+        getProker();
         window.scrollTo(0, 0);
       }, []); 
-
+    const localizer = momentLocalizer(moment)
     const [getKonten,setKonten]= useState([]);
+    const [Proker,setProker]= useState([]);
+    const getProker = async () => {
+        const response = await Axios.get("http://localhost:8000/api/getProker");
+        setProker(response.data);
+      };
     const getProducts = async () => {
         const response = await Axios.get("http://localhost:8000/api/get");
         setKonten(response.data);
@@ -19,17 +30,20 @@ function Kpsdm(){
     return(
         <div className="container">
             <div className="w-full grid gap-4 lg:grid-cols-3 md:grid-cols-2 my-3">
-                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg">
+                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg 
+                transform transition-transform duration-300 ease-in-out hover:scale-110">
                     <img className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">Celebration</h2>
                     <h3 className="text-md mt-4 mb-3">Informasi seputar Celebration</h3>
                 </div>
-                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg">
+                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
+                transform transition-transform duration-300 ease-in-out hover:scale-110">
                     <img className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">APLIKASI</h2>
                     <h3 className="text-md mt-4 mb-3">Informasi seputar APLIKASI</h3>
                 </div>
-                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg">
+                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
+                transform transition-transform duration-300 ease-in-out hover:scale-110">
                     <img className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">INFELLAS</h2>
                     <h3 className="text-md mt-4 mb-3">Informasi seputar INFELLAS</h3>
@@ -59,17 +73,35 @@ function Kpsdm(){
                     <img className="object-cover" src={Depart[0].img} alt="" />
                 </div>
             </div>
+            <div>
+                <h1 className="text-3xl font-md my-2">Kalender {Depart[0].depart}</h1>
+                <Link to='/Proker'>
+                    <Button className="my-2 text-black hover:font-semibold font-bold" variant="secondary"><FontAwesomeIcon style={{ fontSize: '0.8em' }} icon={faPlus} /> Kegiatan</Button>
+                </Link>
+                <Calendar
+                    localizer={localizer}
+                    events={Proker.filter(proker=>proker.Depart === 'KPSDM').map(proker => ({
+                        title: proker.Title,
+                        start: new Date(proker.Start_Date),
+                        end: new Date(proker.End_Date),
+                        color: "#007bff",
+                      }))}
+                    startAccessor="start"
+                    endAccessor="end"
+                    style={{ height: 500 }}
+                />
+            </div>
             <article className="my-5">
                 <h2 className="text-3xl font-md">Publikasi Kegiatan</h2>
                 <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
                     {getKonten.map((item,idx)=>{
                         if(item.Depart === 'KPSDM'){
                             return(
-                                <div key={idx} className='mx-3 bg-gray-500 w-96 rounded-lg'>
+                                <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>
                                 <div className='rounded-lg flex justify-center items-center'>
-                                    <img className="max-h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
+                                    <img className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
                                 </div>
-                                <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-96 bg-gray-300'>
+                                <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full bg-gray-300'>
                                     <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
                                     <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
                                     <div className="flex justify-between items-start text-right">

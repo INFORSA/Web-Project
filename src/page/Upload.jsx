@@ -10,8 +10,7 @@ function Upload() {
   const [jenis, setJenis] = useState("");
   const [gambar, setGambar] = useState(null);
   const [isi, setIsi] = useState("");
-
-  console.log(gambar);
+  const Token = localStorage.getItem('token');
   const handleUpload = (e) => {
     const selectedFile = e.target.files[0];
   
@@ -30,6 +29,7 @@ function Upload() {
 
   const handleInsert = async () => {
     const formData = new FormData();
+    formData.append("Token", Token);
     formData.append("Judul", judul);
     formData.append("Waktu", waktuUpload.toISOString().substring(0, 16));
     formData.append("Depart", jenis);
