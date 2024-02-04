@@ -63,10 +63,10 @@ function Header() {
             {isLoggedIn?(
             <>
               <Nav.Link as={Link} to='Upload' href="#Upload">Upload</Nav.Link>
-              <Nav.Link onClick={logOut} href="#logout">Log Out</Nav.Link>
+              <Nav.Link onClick={logOut} className='text-red-600 font-bold' href="#logout">Log Out</Nav.Link>
             </>
               )
-            :(<Nav.Link as={Link} to='Login' href="#Upload">Login</Nav.Link>)}
+            :(<Nav.Link as={Link} to='Login' className='text-green-600 font-bold' href="#Upload">Login</Nav.Link>)}
           </Nav>
         </Navbar.Collapse>
       </Container>
