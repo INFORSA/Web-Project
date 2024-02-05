@@ -5,6 +5,7 @@ import image from '../../assets/inforsa.png'
 import { Button } from "react-bootstrap";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 function Inkref(){
     useEffect(() => {
@@ -25,24 +26,20 @@ function Inkref(){
       };
     return(
         <div className="container">
-            <div className="w-full grid gap-4 lg:grid-cols-3 md:grid-cols-2 my-3">
-                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
-                transform transition-transform duration-300 ease-in-out hover:scale-110">
-                    <img className="w-20 mx-auto mt-3" src={image} alt="" />
-                    <h2 className="text-3xl mt-4 font-bold font-serif">MERCH</h2>
-                    <h3 className="text-md mt-4 mb-3">Informasi seputar Merchandise</h3>
-                </div>
-                <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
-                transform transition-transform duration-300 ease-in-out hover:scale-110">
-                    <img className="w-20 mx-auto mt-3" src={image} alt="" />
-                    <h2 className="text-3xl mt-4 font-bold font-serif">STORE</h2>
-                    <h3 className="text-md mt-4 mb-3">Informasi seputar INFORSA Store</h3>
-                </div>
+            <div className="w-full grid gap-4 lg:grid-cols-2 md:grid-cols-1 my-3">
+                <Link to='/Store' className="text-black">
+                    <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
+                    transform transition-transform duration-300 ease-in-out hover:scale-110">
+                            <img className="w-20 mx-auto mt-3" src={image} alt="" />
+                            <h2 className="text-3xl mt-4 font-bold font-serif">STORE</h2>
+                            <h3 className="text-md font-thin mt-4 mb-3">Informasi seputar INFORSA Store</h3>
+                    </div>
+                </Link>
                 <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
                 transform transition-transform duration-300 ease-in-out hover:scale-110">
                     <img className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">STAND</h2>
-                    <h3 className="text-md mt-4 mb-3">Informasi seputar INFORSA Stand</h3>
+                    <h3 className="text-md font-thin mt-4 mb-3">Informasi seputar INFORSA Stand</h3>
                 </div>
             </div>
             <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">{Depart[4].depart}</h1>
@@ -99,7 +96,9 @@ function Inkref(){
                                     <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
                                     <div className="flex justify-between items-start text-right">
                                         <h4 className='text-sm font-thin'>Dirilis oleh Departemen {item.Depart}</h4>
-                                        <Button className="my-2 text-sm text-black mx-2" variant="secondary">Read More</Button>
+                                        <Link to={`/Artikel/${item.ID_Konten}`}>
+                                            <Button className="my-2 text-sm text-black mx-2" variant="secondary">Read More</Button>
+                                        </Link>
                                     </div>
                                 </div>
                                 </div>

@@ -26,6 +26,7 @@
     "expose": "^0.1.4",
     "express": "^4.18.2",
     "firebase": "^10.8.0",
+    "framer-motion": "^11.0.3",
     "jsonwebtoken": "^8.5.1",
     "jsonwebtoken-esm": "^2.0.1",
     "moment": "^2.30.1",

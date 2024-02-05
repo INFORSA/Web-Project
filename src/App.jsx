@@ -20,6 +20,8 @@ import Inkref from './page/depart/Inkref'
 import Upload from './page/Upload'
 import Login from './page/Login'
 import Proker from './page/Proker'
+import Store from './page/Store'
+import Detail from './page/Detail'
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -28,7 +30,7 @@ function App() {
       <Header/>
       <div className='bg-white'>
         <Routes>
-          <Route path='/' element={
+          <Route exact path='/' element={
             <>
             <LandingPage/>
             <About/>
@@ -48,6 +50,8 @@ function App() {
           <Route path='/KOMINFO' element={<Kominfo/>}/>
           <Route path='/INKREF' element={<Inkref/>}/>
           <Route path='/Login' element={<Login/>}/>
+          <Route path='/Store' element={<Store/>}/>
+          <Route path='/Artikel/:id' element={<Detail/>}/>
           {isLoggedIn?(
             <>
               <Route path='/Proker' element={<Proker/>}/>
