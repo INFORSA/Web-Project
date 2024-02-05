@@ -106,7 +106,9 @@ function Kpsdm(){
                                     <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
                                     <div className="flex justify-between items-start text-right">
                                         <h4 className='text-sm font-thin'>Dirilis oleh Departemen {item.Depart}</h4>
-                                        <Button className="my-2 text-sm text-black mx-2" variant="secondary">Read More</Button>
+                                        <Link to={`/Artikel/${item.ID_Konten}`}>
+                                            <Button className="my-2 text-sm text-black mx-2" variant="secondary">Read More</Button>
+                                        </Link>
                                     </div>
                                 </div>
                                 </div>

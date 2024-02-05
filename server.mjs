@@ -65,6 +65,15 @@ server.get('/api/get', (req, res) => {
     });
 });
 
+server.get('/api/Artikel/:ID_Konten', (req, res) => {
+  const { ID_Konten } = req.params;
+  const sqlSelect = `SELECT * FROM artikel WHERE ID_Konten = ?`;
+  const values = [ID_Konten];
+  db.query(sqlSelect, values, (err, result) => {
+      res.send(result);
+  });
+});
+
 server.get('/api/getProker', (req, res) => {
   const sqlSelect = "SELECT * FROM proker";
   db.query(sqlSelect, (err, result) => {
