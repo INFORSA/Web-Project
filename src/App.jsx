@@ -22,6 +22,7 @@ import Login from './page/Login'
 import Proker from './page/Proker'
 import Store from './page/Store'
 import Detail from './page/Detail'
+import All from './page/All'
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -51,6 +52,7 @@ function App() {
           <Route path='/INKREF' element={<Inkref/>}/>
           <Route path='/Login' element={<Login/>}/>
           <Route path='/Store' element={<Store/>}/>
+          <Route path='/All' element={<All/>}/>
           <Route path='/Artikel/:id' element={<Detail/>}/>
           {isLoggedIn?(
             <>
