@@ -130,7 +130,7 @@ server.post('/api/proker', upload.none(), (req, res) => {
 
 server.post('/api/event', upload.none(), (req, res) => {
   const { Title, CardTitle, CardSubTitle, Isi } = req.body;
-  const sqlInsert = `INSERT INTO berita (Title, CardTitle, CardSubTitle, Isi) VALUES (?, ?, ?, ?)`;
+  const sqlInsert = `INSERT INTO events (Title, CardTitle, CardSubTitle, Isi) VALUES (?, ?, ?, ?)`;
   const values = [Title, CardTitle, CardSubTitle, Isi];
   db.query(sqlInsert, values, (err, fields) => {
     if (err) {
