@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../component/organism/ecommerce/Banner";
 import Type from "../component/organism/ecommerce/Type";
-import inforsa from '../assets/inforsa.png';
+import inforsa_store from '../assets/inforsa-store.jpg';
 // import { HiArrowRight } from "react-icons/hi";
 
 function Store(){
@@ -12,10 +12,14 @@ function Store(){
         <div>
             <h1 className="bg-blue-950 px-3 text-white py-4 text-5xl font-bold text-center">INFORSA STORE</h1>
             <Banner/>
-            <div className="flex justify-around bg-cyan-950">
-                <div className="flex items-center">
-                    <img className="w-40" src={inforsa} alt="" />
-                    <p className="text-white ">Lorep ipsum</p>
+            <div className="flex flex-col lg:flex-row justify-around bg-cyan-950 p-2">
+                <div className="flex items-center gap-3">
+                    <img className="w-40" src={inforsa_store} alt="" />
+                    <p className="text-white text-sm lg:text-md text-center p-3">
+                        INFORSA Store merupakan wadah wirausaha yang dikembangkan langsung oleh anak Sistem Informasi
+                        <br /> 
+                        untuk meningkatkan kualitas sumber daya terutama pada bidang industri bisnis kreatif.
+                    </p>
                 </div>
                 {/* <div className="text-white border h-fit">
                     <HiArrowRight />
@@ -26,15 +30,7 @@ function Store(){
                         <h3 className="text-center">0</h3>
                     </div>
                     <div>
-                        <h2>TESTIMONI</h2>
-                        <h3 className="text-center">0</h3>
-                    </div>
-                    <div>
                         <h2>MERCH</h2>
-                        <h3 className="text-center">0</h3>
-                    </div>
-                    <div>
-                        <h2>FOODS</h2>
                         <h3 className="text-center">0</h3>
                     </div>
                 </div>

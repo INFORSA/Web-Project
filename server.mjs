@@ -81,6 +81,13 @@ server.get('/api/getProker', (req, res) => {
   });
 });
 
+server.get('/api/Upcoming', (req, res) => {
+  const sqlSelect = "SELECT * FROM berita";
+  db.query(sqlSelect, (err, result) => {
+      res.send(result);
+  });
+});
+
 server.get('/api/getAcc', (req, res) => {
   const sqlSelect = "SELECT * FROM admin";
   db.query(sqlSelect, (err, result) => {
@@ -106,8 +113,25 @@ server.post('/api/proker', upload.none(), (req, res) => {
   console.log("Received Request Body:", req.body);
   const sqlInsert = `INSERT INTO proker (Title, Depart, Start_Date, End_Date) VALUES (?, ?, ?, ?)`;
   const values = [Title, Depart, Start_Date, End_Date];
-  console.log(values)
-  console.log("Values to Insert:", [Title, Depart, Start_Date, End_Date]);
+  db.query(sqlInsert, values, (err, fields) => {
+    if (err) {
+      console.error('Error = ',err);
+      res.status(500).send('Gagal menyimpan data.');
+    } else {
+      if (fields.affectedRows) {
+        response(200, "INI INSERT", "BERHASIL", res);
+      } else {
+        console.log("Gagal menyimpan data.");
+      }
+      console.log(fields);
+    }
+  });
+});
+
+server.post('/api/event', upload.none(), (req, res) => {
+  const { Title, CardTitle, CardSubTitle, Isi } = req.body;
+  const sqlInsert = `INSERT INTO berita (Title, CardTitle, CardSubTitle, Isi) VALUES (?, ?, ?, ?)`;
+  const values = [Title, CardTitle, CardSubTitle, Isi];
   db.query(sqlInsert, values, (err, fields) => {
     if (err) {
       console.error('Error = ',err);

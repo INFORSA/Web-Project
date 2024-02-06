@@ -32,8 +32,6 @@ function Login(){
         const found = Acc.find(item => item.Username === Username && item.Pass === Password);
         const generatedToken = generateToken();
         console.log('Generated Token:', generatedToken);
-        localStorage.setItem('token', generatedToken)
-        localStorage.setItem('ID', found.ID_Admin)
         const Token = generatedToken
         const ID = found.ID_Admin
         const requestData = {
@@ -55,6 +53,8 @@ function Login(){
             console.error('Gagal melakukan permintaan ke server:', error);
         });
         if(found){
+            localStorage.setItem('token', generatedToken)
+            localStorage.setItem('ID', found.ID_Admin)
             try {
                 await Swal.fire({
                     title: "Berhasil Login",
