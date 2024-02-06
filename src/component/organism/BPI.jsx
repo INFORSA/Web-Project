@@ -26,7 +26,7 @@ function BadanInti() {
           <div className="text-sm lg:text-2xl font-semibold">
             Bendahara Umum
           </div>
-          <div className="title-bpi text-xs lg:text-md">Angelia Christin</div>
+          <div className="title-bpi text-xs lg:text-md">Angelia Cristin</div>
           <div className="title-bpi text-xs lg:text-md font-thin">2209116015</div>
         </div>
 
