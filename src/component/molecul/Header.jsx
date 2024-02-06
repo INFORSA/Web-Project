@@ -51,6 +51,7 @@ function Header() {
             <Nav.Link as={Linkdom} href="/" activeClass="active" to="/" spy={true} smooth={true} offset={-100} duration={500} >Home</Nav.Link>
             <Nav.Link as={Linkdom} href="About" activeClass="active" to="About" spy={true} smooth={true} offset={-100} duration={500} >About</Nav.Link>
             <NavDropdown title="Departemen" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="BPI" as={Link} to='/BPI'>BPI</NavDropdown.Item>
               <NavDropdown.Item href="KPSDM" as={Link} to='/KPSDM'>KPSDM</NavDropdown.Item>
               <NavDropdown.Item href="RPPM" as={Link} to='/RPPM'>RPPM</NavDropdown.Item>
               <NavDropdown.Item href="RELEKAT" as={Link} to='/RELEKAT'>RELEKAT</NavDropdown.Item>

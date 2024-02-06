@@ -77,6 +77,7 @@ function Proker() {
             value={depart}
             onChange={(e) => setDepart(e.target.value)}
           >
+            <MenuItem value="BPI">BPI</MenuItem>
             <MenuItem value="KPSDM">KPSDM</MenuItem>
             <MenuItem value="RPPM">RPPM</MenuItem>
             <MenuItem value="RELEKAT">RELEKAT</MenuItem>

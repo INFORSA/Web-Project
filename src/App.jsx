@@ -23,6 +23,9 @@ import Proker from './page/Proker'
 import Store from './page/Store'
 import Detail from './page/Detail'
 import All from './page/All'
+import Bpi from './page/depart/Bpi'
+import MoreEvent from './page/MoreEvent'
+import UpEvent from './page/UpEvent'
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -45,6 +48,7 @@ function App() {
             <Question/>
             </>
           }/>
+          <Route path='/BPI' element={<Bpi/>}/>
           <Route path='/KPSDM' element={<Kpsdm/>}/>
           <Route path='/RPPM' element={<Rppm/>}/>
           <Route path='/RELEKAT' element={<Relekat/>}/>
@@ -53,6 +57,8 @@ function App() {
           <Route path='/Login' element={<Login/>}/>
           <Route path='/Store' element={<Store/>}/>
           <Route path='/All' element={<All/>}/>
+          <Route path='/MoreEvent' element={<MoreEvent/>}/>
+          <Route path='/UpEvent' element={<UpEvent/>}/>
           <Route path='/Artikel/:id' element={<Detail/>}/>
           {isLoggedIn?(
             <>

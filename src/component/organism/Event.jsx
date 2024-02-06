@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 // import penyanyi from '../../assets/penyanyi.png'
 
 function Event(){
+    const getEvent = () =>{
+        Swal.fire({
+            title: "INSEVENT 2024",
+            text: "Coming Soon!",
+            icon: "info"
+          })
+    }
+
     return(
         <div className="container min-h-sreen lg:h-72 w-auto grid gap-1 lg:grid-cols-3 md:grid-cols-2 my-3">
             <div className="bg-card1 rounded-lg w-72 bg-blue-950 text-white flex justify-center items-center mx-auto
@@ -12,7 +21,7 @@ function Event(){
                     <p className="text-sm font-thin text-center">2024</p>
                 </div>
             </div>
-            <div className="bg-card2 p-4 rounded-lg w-72 bg-blue-950 text-white flex flex-col justify-evenly items-start mx-auto
+            <div onClick={getEvent} className="bg-card2 p-4 rounded-lg w-72 bg-blue-950 text-white flex flex-col justify-evenly items-start mx-auto
             transform transition-transform duration-300 ease-in-out hover:scale-110">
                 <div>
                     <h1 className="font-semibold text-4xl">COMING SOON</h1>
@@ -27,7 +36,7 @@ function Event(){
                     <h2 className="text-md">Upcoming Events</h2>
                     <h1 className="text-7xl">0</h1>
                 </div>
-                <Link>
+                <Link to='/MoreEvent'>
                     <button>View More</button>
                 </Link>
             </div>

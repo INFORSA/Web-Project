@@ -6,6 +6,8 @@ import { Button } from "react-bootstrap";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Inkref(){
     useEffect(() => {
@@ -68,6 +70,9 @@ function Inkref(){
             </div>
             <div>
                 <h1 className="text-3xl font-md my-2">Kalender {Depart[4].depart}</h1>
+                <Link to='/Proker'>
+                    <Button className="my-2 text-black hover:font-semibold font-bold" variant="secondary"><FontAwesomeIcon style={{ fontSize: '0.8em' }} icon={faPlus} /> Kegiatan</Button>
+                </Link>
                 <Calendar
                     localizer={localizer}
                     events={Proker.filter(proker=>proker.Depart === 'RELEKAT').map(proker => ({

@@ -7,6 +7,8 @@ import { Calendar,momentLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Rppm(){
     useEffect(() => {
@@ -82,6 +84,9 @@ function Rppm(){
             </div>
             <div>
                 <h1 className="text-3xl font-md my-2">Kalender {Depart[1].depart}</h1>
+                <Link to='/Proker'>
+                    <Button className="my-2 text-black hover:font-semibold font-bold" variant="secondary"><FontAwesomeIcon style={{ fontSize: '0.8em' }} icon={faPlus} /> Kegiatan</Button>
+                </Link>
                 <Calendar
                     localizer={localizer}
                     events={Proker.filter(proker=>proker.Depart === 'RPPM').map(proker => ({
