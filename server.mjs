@@ -82,7 +82,7 @@ server.get('/api/getProker', (req, res) => {
 });
 
 server.get('/api/Upcoming', (req, res) => {
-  const sqlSelect = "SELECT * FROM berita";
+  const sqlSelect = "SELECT * FROM events";
   db.query(sqlSelect, (err, result) => {
       res.send(result);
   });
