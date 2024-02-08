@@ -58,14 +58,15 @@ function App() {
           <Route path='/Store' element={<Store/>}/>
           <Route path='/All' element={<All/>}/>
           <Route path='/MoreEvent' element={<MoreEvent/>}/>
-          <Route path='/UpEvent' element={<UpEvent/>}/>
           <Route path='/Artikel/:id' element={<Detail/>}/>
           {isLoggedIn?(
             <>
+              <Route path='/UpEvent' element={<UpEvent/>}/>
               <Route path='/Proker' element={<Proker/>}/>
               <Route path='/Upload' element={<Upload/>}/>
             </>
             ):(<>
+              <Route path='/UpEvent' element={<Login/>}/>
               <Route path='/Proker' element={<Login/>}/>
               <Route path='/Upload' element={<Login/>}/>
             </>

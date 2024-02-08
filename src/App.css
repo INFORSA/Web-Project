@@ -99,3 +99,7 @@
     background-image: url('./assets/ecommerce/t-shirt.jpg');
     background-size: cover;
 }
+.chart{
+    width: 600;
+    height: 300;
+}
