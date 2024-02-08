@@ -9,6 +9,7 @@ import moment from 'moment';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+// import Money from "../../component/organism/Money";
 
 function Bpi(){
     useEffect(() => {
@@ -69,6 +70,9 @@ function Bpi(){
                     <h2>Jumlah Departemen/Biro</h2>
                     <h3 className="text-center">5</h3>
                 </div>
+            </div>
+            <div>
+                {/* <Money/> */}
             </div>
         </div>
     )
