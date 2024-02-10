@@ -1,4 +1,6 @@
-import logo from '../../assets/inforsa.png'
+import logo from '../../assets/inforsa.png';
+
+
 
 function About(){
     return(
