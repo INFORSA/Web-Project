@@ -9,7 +9,6 @@ import moment from 'moment';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-// import Money from "../../component/organism/Money";
 
 function Bpi(){
     useEffect(() => {
