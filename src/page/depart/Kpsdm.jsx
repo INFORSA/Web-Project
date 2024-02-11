@@ -20,11 +20,11 @@ function Kpsdm(){
     const [getKonten,setKonten]= useState([]);
     const [Proker,setProker]= useState([]);
     const getProker = async () => {
-        const response = await Axios.get("http://localhost:8000/api/getProker");
+        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/getProker");
         setProker(response.data);
       };
     const getProducts = async () => {
-        const response = await Axios.get("http://localhost:8000/api/get");
+        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
         setKonten(response.data);
       };
     return(
