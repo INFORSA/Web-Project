@@ -3,21 +3,16 @@ import Axios from 'axios'
 import { useParams } from "react-router-dom";
 
 function Detail(){
-	const { id } = useParams();
+    const { id } = useParams();
+    const [getKonten,setKonten]= useState([]);
+    const getProducts = async () => {
+      const response = await Axios.get(`https://qkrmjmws-8000.asse.devtunnels.ms/api/Artikel/${id}`);
+      setKonten(response.data);
+      };
     useEffect(() => {
         getProducts();
         window.scrollTo(0, 0);
       }, []); 
-    const [getKonten,setKonten]= useState([]);
-    const getProducts = async () => {
-        try {
-          const response = await Axios.get(`https://qkrmjmws-8000.asse.devtunnels.ms/api/Artikel/${id}`);
-          setKonten(response.data);
-          console.log(response.data);
-        } catch (error) {
-          console.error("Terjadi kesalahan:", error);
-        }
-      }
     const getFormat = (dateString) =>{
         const dateObject = new Date(dateString);
         const year = dateObject.getFullYear();
