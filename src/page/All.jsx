@@ -10,7 +10,7 @@ function All(){
       }, []); 
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
-        const response = await Axios.get("http://localhost:8000/api/get");
+        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
         setKonten(response.data);
       };
     return(

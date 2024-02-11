@@ -11,7 +11,7 @@ function Detail(){
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
         try {
-          const response = await Axios.get(`http://localhost:8000/api/Artikel/${id}`);
+          const response = await Axios.get(`https://qkrmjmws-8000.asse.devtunnels.ms/api/Artikel/${id}`);
           setKonten(response.data);
           console.log(response.data);
         } catch (error) {
