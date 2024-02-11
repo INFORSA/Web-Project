@@ -26,9 +26,20 @@ import All from './page/All'
 import Bpi from './page/depart/Bpi'
 import MoreEvent from './page/MoreEvent'
 import UpEvent from './page/UpEvent'
+import Axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function App() {
+  useEffect(() => {
+    getProducts();
+    window.scrollTo(0, 0);
+  }, []); 
   const isLoggedIn = localStorage.getItem("token") !== null;
+  const [getKonten,setKonten]= useState([]);
+  const getProducts = async () => {
+      const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
+      setKonten(response.data);
+    };
   return (
     <div> 
       <Header/>
@@ -49,7 +60,7 @@ function App() {
             </>
           }/>
           <Route path='/BPI' element={<Bpi/>}/>
-          <Route path='/KPSDM' element={<Kpsdm/>}/>
+          <Route path='/KPSDM' element={<Kpsdm API={getKonten}/>}/>
           <Route path='/RPPM' element={<Rppm/>}/>
           <Route path='/RELEKAT' element={<Relekat/>}/>
           <Route path='/KOMINFO' element={<Kominfo/>}/>
