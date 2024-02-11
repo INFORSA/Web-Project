@@ -15,7 +15,7 @@ function Login(){
     const [Password, setPassword] = useState("");
     const [Acc,setAcc]= useState([]);
     const getAcc = async () => {
-        const response = await Axios.get("http://localhost:8000/api/getAcc");
+        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/getAcc");
         setAcc(response.data);
       };
     const generateToken = () => {
@@ -38,7 +38,7 @@ function Login(){
             userId: ID,
             userToken: Token
           };
-        fetch('http://localhost:8000/api/auth', {
+        fetch('https://qkrmjmws-8000.asse.devtunnels.ms/api/auth', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

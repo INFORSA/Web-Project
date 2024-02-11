@@ -20,7 +20,7 @@ function MoreEvent(){
     }));
     console.log(items)
     const getProker = async () => {
-        const response = await Axios.get("http://localhost:8000/api/Upcoming");
+        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/Upcoming");
         setProker(response.data);
     };
     return(

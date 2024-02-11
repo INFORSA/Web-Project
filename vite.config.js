@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:8000',
+      '/api': 'https://qkrmjmws-8000.asse.devtunnels.ms',
     },
   },
   build: {
