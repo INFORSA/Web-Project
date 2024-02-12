@@ -12,7 +12,7 @@ function Event(){
     }
 
     return(
-        <div className="container min-h-sreen lg:h-72 w-full grid gap-3 lg:grid-cols-3 md:grid-cols-2 my-3">
+        <div className="container grid gap-3 lg:grid-cols-3 md:grid-cols-2 min-h-sreen lg:h-72 w-full my-3">
             <div className="bg-card1 rounded-lg w-full bg-blue-950 text-white flex justify-center items-center mx-auto
             transform transition-transform duration-300 ease-in-out hover:scale-110">
                 <div>

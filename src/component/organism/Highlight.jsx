@@ -2,7 +2,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import image from '../../assets/img3.jpeg'
 import image1 from '../../assets/img1.jpeg'
 import image2 from '../../assets/img2.jpg'
-import { Container } from 'react-bootstrap';
 
 function Highlight() {
   const data = [
@@ -23,8 +22,8 @@ function Highlight() {
     },
   ]
   return (
-    <Container className='p-5'>
-    <div className='text-4xl my-3 text-center font-bold'>Highlights</div>
+    <div className='p-5 bg-white my-3 rounded-lg shadow-xl'>
+    <h1 className='text-5xl mb-3 text-end font-serif font-bold'>Highlights</h1>
     <Carousel fade>
       {data.map((item,idx)=>(
         <Carousel.Item key={idx}>
@@ -36,7 +35,7 @@ function Highlight() {
         </Carousel.Item>
       ))}
     </Carousel>
-    </Container>
+    </div>
   );
 }
 
