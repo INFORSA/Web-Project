@@ -22,13 +22,13 @@ function LandingPage() {
           style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
           className="flex w-[400vw] h-full transition-transform duration-500"
         >
-          <div className='w-auto h-full flex items-center justify-center justify-start'>    
+          <div className='w-auto h-full flex items-center justify-center'>    
             <motion.div {...viewportSlideLeft}>
               <img className='object-cover' src={image1} alt="" />
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
-              <div className='text-3xl lg:text-7xl font-serif sm:text-lg md:text-xl  font-bold'>
+              <div className='container text-3xl lg:text-7xl font-serif md:text-xl  font-bold'>
                 Information System Association 
               </div>
               <p className='text-center text-xs lg:text-2xl'>
@@ -73,7 +73,7 @@ function LandingPage() {
             </motion.div>
             </div>
           </div>
-          <div className='w-auto h-full flex items-center justify-center justify-start'>    
+          <div className='w-auto h-full flex items-center justify-center'>    
             <motion.div {...viewportSlideLeft}>
               <img className='object-cover' src={image3} alt="" />
             </motion.div>
