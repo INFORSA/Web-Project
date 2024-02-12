@@ -32,7 +32,9 @@ import { useEffect, useState } from 'react'
 function App() {
   useEffect(() => {
     getProducts();
+    checkTokenValidity();
     window.scrollTo(0, 0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
   const isLoggedIn = localStorage.getItem("token") !== null;
   const [getKonten,setKonten]= useState([]);
@@ -40,6 +42,16 @@ function App() {
       const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
       setKonten(response.data);
     };
+  const checkTokenValidity = () => {
+      const storedToken = localStorage.getItem('expiredTime');
+      if (isLoggedIn) {
+          if (storedToken < Date.now()) {
+              localStorage.removeItem('token');
+              localStorage.removeItem('expiredTime');
+              localStorage.removeItem('ID');
+          }
+      }
+  };
   return (
     <div> 
       <Header/>
