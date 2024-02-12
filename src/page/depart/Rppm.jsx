@@ -59,21 +59,21 @@ function Rppm(){
                             {Depart[1].deskripsi}
                         </p>
                     </div>
-                    <div className="my-3 bg-cyan-950 flex justify-around items-center text-white px-3 py-4 rounded-lg">
+                    <div className="my-3 bg-cyan-950 grid grid-cols-2 lg:grid-cols-4 text-white px-3 py-4 rounded-lg">
                         <div>
-                            <h2>Program Kerja</h2>
+                            <h2 className="text-center">Program Kerja</h2>
                             <h3 className="text-center">0</h3>
                         </div>
                         <div>
-                            <h2>Anggota</h2>
+                            <h2 className="text-center">Anggota</h2>
                             <h3 className="text-center">0</h3>
                         </div>
                         <div>
-                            <h2>Komunitas</h2>
+                            <h2 className="text-center">Komunitas</h2>
                             <h3 className="text-center">0</h3>
                         </div>
                         <div>
-                            <h2>Study Club</h2>
+                            <h2 className="text-center">Study Club</h2>
                             <h3 className="text-center">0</h3>
                         </div>
                     </div>

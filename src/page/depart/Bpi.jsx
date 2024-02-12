@@ -56,17 +56,17 @@ function Bpi(){
                     style={{ height: 500 }}
                 />
             </div>
-            <div className="my-3 bg-cyan-950 flex justify-around items-center text-white px-3 py-4 rounded-lg">
+            <div className="my-3 bg-cyan-950 flex justify-around mx-auto items-center text-white px-3 py-4 rounded-lg">
                 <div>
-                    <h2>Program Kerja Total</h2>
+                    <h2 className="text-center">Program Kerja Total</h2>
                     <h3 className="text-center">0</h3>
                 </div>
                 <div>
-                    <h2>Jumlah Staff Pengurus</h2>
+                    <h2 className="text-center">Jumlah Staff Pengurus</h2>
                     <h3 className="text-center">0</h3>
                 </div>
                 <div>
-                    <h2>Jumlah Departemen/Biro</h2>
+                    <h2 className="text-center">Jumlah Departemen/Biro</h2>
                     <h3 className="text-center">5</h3>
                 </div>
             </div>
