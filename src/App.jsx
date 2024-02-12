@@ -47,16 +47,16 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <div className='bg-main'>
-            <LandingPage/>
-            <About/>
-            <Event/>
-            <Highlight/>
-            <Kabinet/>
-            <VisiMisi/>
-            <BadanInti/>
-            <Depart/>
-            <Article/>
-            <Question/>
+              <LandingPage/>
+              <About/>
+              <Event/>
+              <Highlight/>
+              <Kabinet/>
+              <VisiMisi/>
+              <BadanInti/>
+              <Depart/>
+              <Article/>
+              <Question/>
             </div>
           }/>
           <Route path='/BPI' element={<Bpi/>}/>

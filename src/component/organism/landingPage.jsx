@@ -28,8 +28,8 @@ function LandingPage() {
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
-              <div className='container text-3xl lg:text-7xl font-serif md:text-xl  font-bold'>
-                Information System Association 
+              <div className='container text-2xl lg:text-7xl font-serif md:text-xl  font-bold'>
+                Information System Association
               </div>
               <p className='text-center text-xs lg:text-2xl'>
                 Bersatu Untuk Berjaya!
