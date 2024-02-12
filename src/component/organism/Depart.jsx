@@ -28,8 +28,9 @@ function Depart() {
   const [selectedINKREF, setselectedINKREF] = useState('INKREF');
   const [selectedRELEKAT, setselectedRELEKAT] = useState('RELEKAT');
   return (
-    <div className='container min-h-screen flex flex-col md:flex-row  items-center'>
-    <div className='text-3xl font-semibold'>
+    <div className='min-h-screen bg-white flex justify-center'>
+    <div className='container flex flex-col md:flex-row items-center'>
+    <div className='text-3xl font-semibold font-serif'>
       Departemen <br /> & <br /> Biro
       <br />
       <div className='text-xl font-light'>
@@ -77,6 +78,7 @@ function Depart() {
           </Link>
         </div>
     </Carousel>
+    </div>
     </div>
   );
 }

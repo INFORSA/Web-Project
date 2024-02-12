@@ -3,9 +3,9 @@ import 'react-multi-carousel/lib/styles.css';
 function VisiMisi() {
 
   return (
-    <div className='container mb-5 flex flex-col lg:flex-row items-start justify-center h-full w-full rounded-lg shadow-xl p-3 my-5'>
+    <div className='bg-white flex flex-col lg:flex-row items-start justify-center h-full w-full rounded-lg shadow-xl p-5 my-5'>
       <div className='text-center text-3xl font-semibold rounded-md'>
-          <h1 className='text-5xl font-bold'>
+          <h1 className='text-5xl font-bold font-serif'>
             Visi
           </h1>
         <p className='text-center text-xl font-light my-3'>
@@ -16,7 +16,7 @@ function VisiMisi() {
       </div>
       <div className='flex text-center text-3xl font-semibold mx-3'>
         <div>
-          <h1 className='text-5xl font-bold'>
+          <h1 className='text-5xl font-bold font-serif'>
             Misi
           </h1>
           <ol className='list-decimal my-3'>

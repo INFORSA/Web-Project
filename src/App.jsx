@@ -43,10 +43,10 @@ function App() {
   return (
     <div> 
       <Header/>
-      <div className='bg-white'>
+      <div >
         <Routes>
           <Route exact path='/' element={
-            <>
+            <div className='bg-main'>
             <LandingPage/>
             <About/>
             <Event/>
@@ -57,7 +57,7 @@ function App() {
             <Depart/>
             <Article/>
             <Question/>
-            </>
+            </div>
           }/>
           <Route path='/BPI' element={<Bpi/>}/>
           <Route path='/KPSDM' element={<Kpsdm API={getKonten}/>}/>

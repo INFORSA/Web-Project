@@ -8,6 +8,7 @@ import CryptoJS from "crypto-js";
 function Login(){
     useEffect(()=>{
         getAcc();
+        checkTokenValidity();
         window.scrollTo(0, 0);
     },[])
     const secretKey = 'INFORSASIUNMUL2024'
@@ -23,11 +24,23 @@ function Login(){
         const randomString = Math.random().toString(36).substring(7);
         const expirationTime = Date.now() + 60 * 60 * 1000;
         const tokenPayload = { timestamp, randomString, expirationTime };
-      
+        console.log(expirationTime)
         const token = CryptoJS.HmacSHA256(JSON.stringify(tokenPayload), secretKey).toString(CryptoJS.enc.Hex);
       
         return token;
       };
+    const checkTokenValidity = () => {
+        const storedToken = localStorage.getItem(secretKey);
+        if (storedToken) {
+            const tokenPayload = JSON.parse(CryptoJS.enc.Hex.stringify(CryptoJS.enc.Base64.parse(storedToken)));
+            if (tokenPayload.expirationTime < Date.now()) {
+                // Token telah kadaluwarsa, hapus dari localStorage
+                localStorage.removeItem(secretKey);
+                // Hapus data terkait token lainnya di localStorage jika perlu
+                // localStorage.removeItem('ID');
+            }
+        }
+    };
     const handleProcess = async () =>{
         const found = Acc.find(item => item.Username === Username && item.Pass === Password);
         const generatedToken = generateToken();
