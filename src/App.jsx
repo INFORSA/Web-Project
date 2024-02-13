@@ -45,6 +45,8 @@ function App() {
   const checkTokenValidity = () => {
       const storedToken = localStorage.getItem('expiredTime');
       if (isLoggedIn) {
+        console.log('now',Date.now())
+        console.log('expired',localStorage.getItem('expiredTime'))
           if (storedToken < Date.now()) {
               localStorage.removeItem('token');
               localStorage.removeItem('expiredTime');
