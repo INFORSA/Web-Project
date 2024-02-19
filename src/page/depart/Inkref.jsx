@@ -75,7 +75,7 @@ function Inkref(){
                 </Link>
                 <Calendar
                     localizer={localizer}
-                    events={Proker.filter(proker=>proker.Depart === 'RELEKAT').map(proker => ({
+                    events={Proker.filter(proker=>proker.Depart === 'INKREF').map(proker => ({
                         title: proker.Title,
                         start: new Date(proker.Start_Date),
                         end: new Date(proker.End_Date),
