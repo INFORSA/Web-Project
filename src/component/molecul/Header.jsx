@@ -55,12 +55,12 @@ function Header() {
           </Link>
           <div className='font-light text-sm text-center'>Information System Association</div>
         </div>
-        <button
-          className="block bg-transparent lg:hidden focus:outline-none flex justify-end"
+        <div
+          className="block bg-transparent lg:hidden focus:outline-none flex justify-end mt-1"
           onClick={toggleNav}
         >
           <svg
-            className="w-6 h-6"
+            className="w-8 h-8"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ function Header() {
               d="M4 6h16M4 12h16m-7 6h7"
             ></path>
           </svg>
-        </button>
+        </div>
         <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 text-left lg:block ${isNav ? 'block' : 'hidden'}`}>
           <Linkdom
             href='#'
