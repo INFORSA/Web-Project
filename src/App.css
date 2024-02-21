@@ -125,3 +125,10 @@
         background-attachment: scroll; 
     }
 }
+.custom-nav-dropdown:hover .hover-dropdown {
+    display: block;
+  }
+  
+  .hover-dropdown:hover {
+    display: block;
+  }

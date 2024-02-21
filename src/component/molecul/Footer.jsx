@@ -8,7 +8,7 @@ function Footer() {
         <div className="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-lg font-semibold mb-3">Temukan Kami di Sosial Media</h2>
           <div className="flex justify-center md:justify-center">
-            <a href="#" className="mr-4 no-underline text-black">
+            <a href="https://www.instagram.com/inforsa_unmul/" className="mr-4 no-underline text-black">
               <FontAwesomeIcon style={{ fontSize: '2em' }} icon={faInstagram} /><div>INFORSA_UNMUL</div>
             </a>
             <a href="#" className="mr-4 no-underline text-black">

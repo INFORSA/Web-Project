@@ -1,6 +1,11 @@
 // import logo from '../assets/inforsa.png'
 
+import { Button } from "@mui/material";
+
 function Question(){
+    const handleClick = () => {
+        window.location.href = `https://wa.me/+6281528840057`;
+      };
     return(
         <div className='flex flex-col sm:flex-row items-center justify-between text-center container rounded-lg shadow-xl my-3 p-5 bg-about
         transform transition-transform duration-200 ease-in-out hover:scale-105'>
@@ -12,7 +17,7 @@ function Question(){
                     </div>
                 </div>
             </div>
-            <div className="border border-white p-2 rounded-md">Kontak Kami</div> 
+            <Button onClick={handleClick} className="border border-white p-2 rounded-md text-white">Kontak Kami</Button> 
         </div>
     )
 }

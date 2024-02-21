@@ -28,6 +28,8 @@
     "expose": "^0.1.4",
     "express": "^4.18.2",
     "firebase": "^10.8.0",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.7.2",
     "framer-motion": "^11.0.3",
     "jsonwebtoken": "^8.5.1",
     "jsonwebtoken-esm": "^2.0.1",

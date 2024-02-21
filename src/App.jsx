@@ -57,7 +57,7 @@ function App() {
   return (
     <div> 
       <Header/>
-      <div >
+      <div className='pt-24 lg:pt-20'>
         <Routes>
           <Route exact path='/' element={
             <div className='bg-main'>

@@ -1,15 +1,23 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from 'react';
 import INFORSA from '../../assets/inforsa.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { Link as Linkdom } from 'react-scroll';
 import Swal from 'sweetalert2';
 
 function Header() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isNav, setisNav] = useState(false);
   const isLoggedIn = localStorage.getItem("token") !== null;
   const navigate = useNavigate();
+  const toggleNav = () => {
+    setisNav(!isNav);
+    // setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    // setIsDropdownOpen(!isDropdownOpen);
+    setisNav(false); 
+  };
   const logOut = () => {
     Swal.fire({
       title: "Are you sure to logout?",
@@ -30,48 +38,102 @@ function Header() {
     });
   }
   return (
-    <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary sm:h-16 md:h-20">
-      <Container>
-      <Link to='/'>
-        <img
+    <nav className="bg-body-tertiary sm:h-16 md:h-20 flex items-center fixed inset-x-0 z-50 ">
+      <div className="container mx-auto grid grid-cols-3 gap-auto lg:flex justify-between px-4">
+        <Link to='/'>
+          <img
             src={INFORSA}
-            width="50"
-            height="50"
-            className="ml-3 d-inline-block align-top"
+            width="70"
+            height="70"
+            className="ml-3 inline-block align-top"
             alt="React Bootstrap logo"
           />
-      </Link>
-      <Navbar.Brand href="#home" as={Link} to='/' className='mx-3 font-bold text-3xl sm:text-md md:text-2xl lg:text-3xl xl:text-4xl'>
-        INFORSA
-        <div className='font-light text-sm'>Information System Association</div>
-      </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Linkdom} href="/" activeClass="active" to="/" spy={true} smooth={true} offset={-100} duration={500} >Home</Nav.Link>
-            <Nav.Link as={Linkdom} href="About" activeClass="active" to="About" spy={true} smooth={true} offset={-100} duration={500} >About</Nav.Link>
-            <NavDropdown title="Departemen" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="BPI" as={Link} to='/BPI'>BPI</NavDropdown.Item>
-              <NavDropdown.Item href="KPSDM" as={Link} to='/KPSDM'>KPSDM</NavDropdown.Item>
-              <NavDropdown.Item href="RPPM" as={Link} to='/RPPM'>RPPM</NavDropdown.Item>
-              <NavDropdown.Item href="RELEKAT" as={Link} to='/RELEKAT'>RELEKAT</NavDropdown.Item>
-              <NavDropdown.Item href="KOMINFO" as={Link} to='/KOMINFO'>KOMINFO</NavDropdown.Item>
-              <NavDropdown.Item href="INKREF" as={Link} to='/INKREF'>INKREF</NavDropdown.Item>
-              <NavDropdown.Divider /> 
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            {isLoggedIn?(
-            <>
-              <Nav.Link as={Link} to='Upload' href="#Upload">Upload</Nav.Link>
-              <Nav.Link onClick={logOut} className='text-red-600 font-bold' href="#logout">Log Out</Nav.Link>
-            </>
-              )
-            :(<Nav.Link as={Link} to='Login' className='text-green-600 font-bold' href="#Upload">Login</Nav.Link>)}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Link>
+        <div className='text-black text-3xl sm:text-md md:text-2xl lg:text-3xl xl:text-4xl ml-3 mt-1'>
+          <Link to='/' className='font-bold text-black text-center'>
+            INFORSA
+          </Link>
+          <div className='font-light text-sm text-center'>Information System Association</div>
+        </div>
+        <button
+          className="block bg-transparent lg:hidden focus:outline-none flex justify-end"
+          onClick={toggleNav}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+        <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 text-left lg:block ${isNav ? 'block' : 'hidden'}`}>
+          <Linkdom
+            to="/"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            className="block lg:inline-block text-black hover:text-gray-400 mr-4"
+          >
+            Home
+          </Linkdom>
+          <Linkdom
+            to="About"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            className="block lg:inline-block text-black hover:text-gray-400 mr-4"
+          >
+            About
+          </Linkdom>
+          <div
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+            className={`lg:flex z-50 ${isDropdownOpen ? 'block' : 'hidden'}`}
+          >
+            <div className="relative inline-block text-left">
+              <div
+                className="justify-center px-4 font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
+                onClick={toggleDropdown}
+              >
+                Departemen
+              </div>
+              <div
+                className={`origin-top-right absolute right-0 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${isDropdownOpen ? 'block' : 'hidden'}`}
+              >
+                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                  <Link to='/BPI' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">BPI</Link>
+                  <Link to='/KPSDM' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">KPSDM</Link>
+                  <Link to='/RPPM' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">RPPM</Link>
+                  <Link to='/RELEKAT' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">RELEKAT</Link>
+                  <Link to='/KOMINFO' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">KOMINFO</Link>
+                  <Link to='/INKREF' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">INKREF</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='w-full flex flex-col sm:flex-row justify-end items-left mb-3'>
+            {isLoggedIn ? (
+              <>
+                <Link to='/Upload' className="text-center inline-block text-black text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400 ">Upload</Link>
+                <button onClick={logOut} className='lg:ml-4 inline-block text-red-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400'>Log Out</button>
+              </>
+            ) : (
+              <Link to='/Login' className="text-center inline-block text-green-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400">Login</Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 
