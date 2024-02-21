@@ -76,6 +76,7 @@ function Header() {
         </button>
         <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 text-left lg:block ${isNav ? 'block' : 'hidden'}`}>
           <Linkdom
+            href='#'
             to="/"
             spy={true}
             smooth={true}
@@ -86,6 +87,7 @@ function Header() {
             Home
           </Linkdom>
           <Linkdom
+            href='#'
             to="About"
             spy={true}
             smooth={true}
@@ -101,12 +103,13 @@ function Header() {
             className={`lg:flex z-50 ${isDropdownOpen ? 'block' : 'hidden'}`}
           >
             <div className="relative inline-block text-left">
-              <div
+              <a
+                href='#'
                 className="justify-center px-4 font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
                 onClick={toggleDropdown}
               >
                 Departemen
-              </div>
+              </a>
               <div
                 className={`origin-top-right absolute right-0 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${isDropdownOpen ? 'block' : 'hidden'}`}
               >
