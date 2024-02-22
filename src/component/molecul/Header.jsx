@@ -82,7 +82,7 @@ function Header() {
             smooth={true}
             offset={-100}
             duration={500}
-            className="block lg:inline-block text-black hover:text-gray-400 mr-4"
+            className="block lg:inline-block text-black hover:text-gray-400"
           >
             Home
           </Linkdom>
@@ -93,7 +93,7 @@ function Header() {
             smooth={true}
             offset={-100}
             duration={500}
-            className="block lg:inline-block text-black hover:text-gray-400 mr-4"
+            className="block lg:inline-block text-black hover:text-gray-400"
           >
             About
           </Linkdom>
@@ -105,7 +105,7 @@ function Header() {
             <div className="relative inline-block text-left">
               <a
                 href='#'
-                className="justify-center px-4 font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
+                className="justify-center font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
                 onClick={toggleDropdown}
               >
                 Departemen
