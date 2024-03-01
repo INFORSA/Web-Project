@@ -22,7 +22,7 @@ function Highlight() {
     },
   ]
   return (
-    <div className='p-5 bg-white my-3 rounded-lg shadow-xl'>
+    <div className='p-5 bg-white mt-3 rounded-lg shadow-xl'>
     <h1 className='text-5xl mb-3 text-end font-serif font-bold'>Highlights</h1>
     <Carousel fade>
       {data.map((item,idx)=>(

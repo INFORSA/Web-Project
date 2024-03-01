@@ -38,9 +38,9 @@ server.post('/api/insert', upload.single('Gambar'), (req, res) => {
   console.log('ini authentication',authData)
   if(authData){
     const ID_AdminValue = authData; 
-  
-    const sqlInsert = `INSERT INTO artikel (ID_Admin, Judul, Waktu, Depart, Gambar, Isi) VALUES (?, ?, ?, ?, ?, ?)`;
-    const values = [ID_AdminValue,Judul, Waktu, Depart, Gambar, Isi];
+    const Status = 'un-rilis';
+    const sqlInsert = `INSERT INTO artikel (ID_Admin, Judul, Waktu, Depart, Gambar, Isi, S) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const values = [ID_AdminValue,Judul, Waktu, Depart, Gambar, Isi, Status];
   
     db.query(sqlInsert, values, (err, fields) => {
       if (err) {

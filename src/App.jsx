@@ -28,6 +28,7 @@ import MoreEvent from './page/MoreEvent'
 import UpEvent from './page/UpEvent'
 import Axios from 'axios'
 import { useEffect, useState } from 'react'
+import Galery from './component/organism/Galery'
 
 function App() {
   useEffect(() => {
@@ -65,6 +66,7 @@ function App() {
               <About/>
               <Event/>
               <Highlight/>
+              <Galery/>
               <Kabinet/>
               <VisiMisi/>
               <BadanInti/>
