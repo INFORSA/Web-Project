@@ -15,8 +15,10 @@ function Galery() {
            src: image,
            width: 320,
            height: 174,
-        //    isSelected: true,
-           caption: "After Rain (Jeshu John - designerspics.com)",
+           tags: [
+            { value: "INFORSA", title: "INFORSA" },
+            { value: "APLIKASI", title: "APLIKASI" },
+         ],
         },
         {
            src: image1,
@@ -26,19 +28,24 @@ function Galery() {
               { value: "INFORSA", title: "INFORSA" },
               { value: "Wisuda", title: "Wisuda" },
            ],
-           alt: "Boats (Jeshu John - designerspics.com)",
         },
         {
            src: image2,
            width: 350,
            height: 212,
+           tags: [
+            { value: "INFORSA", title: "INFORSA" },
+            { value: "APLIKASI", title: "APLIKASI" },
+         ],
         },
         {
             src: image3,
             width: 300,
             height: 174,
-         //    isSelected: true,
-            caption: "After Rain (Jeshu John - designerspics.com)",
+            tags: [
+               { value: "INFORSA", title: "INFORSA" },
+               { value: "APLIKASI", title: "APLIKASI" },
+            ],
          },
          {
             src: image4,
@@ -46,21 +53,26 @@ function Galery() {
             height: 212,
             tags: [
                { value: "INFORSA", title: "INFORSA" },
-               { value: "APLIKASI", title: "APLIKASI" },
+               { value: "MAKRAB", title: "MAKRAB" },
             ],
-            alt: "Boats (Jeshu John - designerspics.com)",
          },
          {
             src: image5,
             width: 320,
             height: 212,
+            tags: [
+               { value: "INFORSA", title: "INFORSA" },
+               { value: "SEMINAR", title: "SEMINAR" },
+            ],
          },
          {
             src: image6,
             width: 'full',
             height: 174,
-         //    isSelected: true,
-            caption: "After Rain (Jeshu John - designerspics.com)",
+            tags: [
+               { value: "INFORSA", title: "INFORSA" },
+               { value: "SEMINAR", title: "SEMINAR" },
+            ],
          },
          {
             src: image7,
@@ -70,14 +82,15 @@ function Galery() {
                { value: "INFORSA", title: "INFORSA" },
                { value: "StudyClub", title: "StudyClub" },
             ],
-            alt: "Boats (Jeshu John - designerspics.com)",
          },
          {
             src: image8,
             width: 'full',
             height: 174,
-         //    isSelected: true,
-            caption: "After Rain (Jeshu John - designerspics.com)",
+            tags: [
+               { value: "INFORSA", title: "INFORSA" },
+               { value: "SEMINAR", title: "SEMINAR" },
+            ],
          },
      ];
   return (
