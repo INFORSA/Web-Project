@@ -1,24 +1,8 @@
-// import ketua from '../../assets/Galery/Depart/25.png';
-// import wakil from '../../assets/Galery/Depart/24.png';
-// import bendum from '../../assets/Galery/Depart/26.png';
-// import sekum from '../../assets/Galery/Depart/27.png';
 
 function BadanInti() {
   return (
     <div className="text-white bg-kabinet">
       <h1 className="text-3xl font-serif lg:text-5xl text-center font-bold py-3">Badan Pengurus Inti <br /> 2024</h1>
-      {/* <div className='p-5 bg-kabinet my-3 rounded-lg shadow-xl h-full'>
-      <div className="flex justify-around mx-auto">
-          <div>
-              <img className="w-96 lg:my-5" src={ketua} alt="" />
-              <img className="w-96 lg:my-5" src={bendum} alt="" />
-          </div>
-          <div>
-              <img className="w-96 lg:my-5" src={wakil} alt="" />
-              <img className="w-96 lg:my-5" src={sekum} alt="" />
-          </div>
-      </div>
-      </div> */}
       <div className="bg-bpi min-h-screen rounded-lg shadow-xl p-5">
       <div className="flex flex-col lg:flex-row justify-between">
         <div className="lg:w-1/2 text-left h-40 lg:h-60 mb-4">

@@ -12,6 +12,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import bph from '../../assets/Galery/Depart/7.png';
 import staff from '../../assets/Galery/Depart/8.png';
 import staff2 from '../../assets/Galery/Depart/9.png';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Rppm(){
     useEffect(() => {
@@ -82,15 +83,15 @@ function Rppm(){
                     </div>
                 </div>
                 <div className="flex-1">
-                    <img className="object-cover" src={Depart[1].img} alt="" />
+                    <LazyLoadImage className="object-cover" src={Depart[1].img} alt="" />
                 </div>
             </div>
             <div className='p-5 bg-white my-3 rounded-lg shadow-xl h-full'>
                 <h1 className='text-5xl mb-3 text-start font-serif font-bold'>Galery</h1>
                 <div className="grid grid-cols-3 gap-3">
-                    <img className="w-96" src={bph} alt="" />
-                    <img className="w-96" src={staff} alt="" />
-                    <img className="w-96" src={staff2} alt="" />
+                    <LazyLoadImage className="w-96" src={bph} alt="" />
+                    <LazyLoadImage className="w-96" src={staff} alt="" />
+                    <LazyLoadImage className="w-96" src={staff2} alt="" />
                 </div>
             </div>
             <div>
@@ -119,7 +120,7 @@ function Rppm(){
                             return(
                                 <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>
                                 <div className='rounded-lg flex justify-center items-center'>
-                                    <img className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
+                                    <LazyLoadImage className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
                                 </div>
                                 <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full bg-gray-300'>
                                     <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
