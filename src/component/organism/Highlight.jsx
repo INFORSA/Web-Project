@@ -2,6 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import image from '../../assets/img3.jpeg'
 import image1 from '../../assets/img1.jpeg'
 import image2 from '../../assets/img2.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Highlight() {
   const data = [
@@ -27,7 +28,7 @@ function Highlight() {
     <Carousel fade>
       {data.map((item,idx)=>(
         <Carousel.Item key={idx}>
-          <img className='object-cover h-96 w-full' src={item.image} alt="" />
+          <LazyLoadImage className='object-cover h-96 w-full' src={item.image} alt="" />
           <Carousel.Caption className='bg-caption'>
             <h3>{item.title}</h3>
             <p>{item.deskripsi}</p>

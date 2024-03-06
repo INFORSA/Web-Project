@@ -8,6 +8,10 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import bph from '../../assets/Galery/Depart/13.png';
+import staff from '../../assets/Galery/Depart/14.png';
+import staff2 from '../../assets/Galery/Depart/15.png';
+
 
 function Inkref(){
     useEffect(() => {
@@ -66,6 +70,14 @@ function Inkref(){
                 </div>
                 <div className="flex-1">
                     <img className="object-cover" src={Depart[4].img} alt="" />
+                </div>
+            </div>
+            <div className='p-5 bg-white my-3 rounded-lg shadow-xl h-full'>
+                <h1 className='text-5xl mb-3 text-start font-serif font-bold'>Galery</h1>
+                <div className="grid grid-cols-3 gap-3">
+                    <img className="w-96" src={bph} alt="" />
+                    <img className="w-96" src={staff} alt="" />
+                    <img className="w-96" src={staff2} alt="" />
                 </div>
             </div>
             <div>

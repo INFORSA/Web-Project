@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 import { scaleDown, slideLeft, slideRight, viewportSlideLeft, viewportSlideRight } from "../../framerMotion";
 import { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function LandingPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,7 +25,7 @@ function LandingPage() {
         >
           <div className='w-auto h-full flex items-center justify-center'>    
             <motion.div {...viewportSlideLeft}>
-              <img className='object-cover' src={image1} alt="" />
+              <LazyLoadImage className='object-cover' src={image1} alt="" />
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
@@ -39,7 +40,7 @@ function LandingPage() {
           </div>
           <div className='w-auto h-full flex items-center justify-start'>    
             <motion.div {...viewportSlideLeft}>
-              <img className='object-cover' src={image} alt="" />
+              <LazyLoadImage className='object-cover' src={image} alt="" />
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
@@ -57,7 +58,7 @@ function LandingPage() {
           </div>
           <div className='w-auto h-full flex items-center justify-start'>    
             <motion.div {...viewportSlideLeft}>
-              <img className='object-cover' src={image2} alt="" />
+              <LazyLoadImage className='object-cover' src={image2} alt="" />
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
@@ -75,7 +76,7 @@ function LandingPage() {
           </div>
           <div className='w-auto h-full flex items-center justify-center'>    
             <motion.div {...viewportSlideLeft}>
-              <img className='object-cover' src={image3} alt="" />
+              <LazyLoadImage className='object-cover' src={image3} alt="" />
             </motion.div>
             <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
             <motion.div {...viewportSlideRight}>
