@@ -12,6 +12,13 @@ const db = mysql.createConnection({
     database: 'inforsa'
 });
 
+// const db = mysql.createConnection({
+//   host: 'mysql-165456-0.cloudclusters.net',
+//   user: 'admin',
+//   password: "evfovqhI",
+//   database: 'inforsa'
+// });
+
 const server = express();
 server.use(cors());
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -32,30 +39,32 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 server.post('/api/insert', upload.single('Gambar'), (req, res) => {
-  const { Token, Judul, Waktu, Depart, Isi } = req.body;
-  const Gambar = req.file.filename; 
-  const authData = authDataMap.get(Token).userId;
-  console.log('ini authentication',authData)
-  if(authData){
-    const ID_AdminValue = authData; 
-    const Status = 'un-rilis';
-    const sqlInsert = `INSERT INTO artikel (ID_Admin, Judul, Waktu, Depart, Gambar, Isi, S) VALUES (?, ?, ?, ?, ?, ?, ?)`;
-    const values = [ID_AdminValue,Judul, Waktu, Depart, Gambar, Isi, Status];
-  
-    db.query(sqlInsert, values, (err, fields) => {
-      if (err) {
-        console.error('Error = ',err);
-        res.status(500).send('Gagal menyimpan data.');
-      } else {
-        if (fields.affectedRows) {
-          response(200, "INI INSERT", "BERHASIL", res);
+  db.connect(() => {
+    const { Token, Judul, Waktu, Depart, Isi } = req.body;
+    const Gambar = req.file.filename; 
+    const authData = authDataMap.get(Token).userId;
+    console.log('ini authentication',authData)
+    if(authData){
+      const ID_AdminValue = authData; 
+      const Status = 'un-rilis';
+      const sqlInsert = `INSERT INTO artikel (ID_Admin, Judul, Waktu, Depart, Gambar, Isi, S) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+      const values = [ID_AdminValue,Judul, Waktu, Depart, Gambar, Isi, Status];
+    
+      db.query(sqlInsert, values, (err, fields) => {
+        if (err) {
+          console.error('Error = ',err);
+          res.status(500).send('Gagal menyimpan data.');
         } else {
-          console.log("Gagal menyimpan data.");
+          if (fields.affectedRows) {
+            response(200, "INI INSERT", "BERHASIL", res);
+          } else {
+            console.log("Gagal menyimpan data.");
+          }
+          console.log(fields);
         }
-        console.log(fields);
-      }
-    });
-  }
+      });
+    }
+  })
 });
 
 server.get('/api/get', (req, res) => {

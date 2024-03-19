@@ -17,7 +17,7 @@ function Proker() {
     formData.append("End_Date", formatDateForInput(end));
 
     try {
-      const response = await fetch("http://localhost:8000/api/proker", {
+      const response = await fetch("https://api.inforsa-unmul.org/api/proker", {
         method: "POST",
         body: formData,
       });

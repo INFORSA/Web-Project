@@ -15,7 +15,7 @@ function Login(){
     const [Password, setPassword] = useState("");
     const [Acc,setAcc]= useState([]);
     const getAcc = async () => {
-        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/getAcc");
+        const response = await Axios.get("https://api.inforsa-unmul.org/api/getAcc");
         setAcc(response.data);
       };
     const generateToken = () => {
@@ -37,7 +37,7 @@ function Login(){
             userId: ID,
             userToken: Token
           };
-        fetch('https://qkrmjmws-8000.asse.devtunnels.ms/api/auth', {
+        fetch('https://api.inforsa-unmul.org/api/auth', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ function Login(){
     }
     return(
         <div className="min-h-screen bg-login flex items-center justify-center">
-            <div className='bg-white p-4 rounded-2xl'>
+            <div className='bg-white shadow-xl border border-xl p-4 rounded-2xl'>
                 <div className="flex justify-center">
                     <img className="w-24" src={image} alt="" />
                 </div>

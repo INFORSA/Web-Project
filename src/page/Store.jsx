@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import Sound from "../data/Store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../component/organism/ecommerce/Banner";
 import Type from "../component/organism/ecommerce/Type";
 import inforsa_store from '../assets/inforsa-store.jpg';
-// import { HiArrowRight } from "react-icons/hi";
+import { useEffect } from "react";
 
 function Store(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []); 
     return(
         <div>
             <h1 className="bg-blue-950 px-3 text-white py-4 text-5xl font-bold text-center">INFORSA STORE</h1>
@@ -51,7 +54,7 @@ function Store(){
                                     <h4 className="text-sm font-semibold">Status : {item.statubarang}</h4>
                                 </div>
                                 <Link className="flex justify-end mt-3">
-                                    <FontAwesomeIcon icon={faCartShopping} className="text-white bg-black p-2" style={{ fontSize: '1em' }}/>
+                                    <FontAwesomeIcon icon={faMessage} className="text-white bg-black p-2" style={{ fontSize: '1em' }}/>
                                 </Link>
                             </div>
                         </div>

@@ -11,11 +11,9 @@ function Header() {
   const navigate = useNavigate();
   const toggleNav = () => {
     setisNav(!isNav);
-    // setIsDropdownOpen(false);
   };
 
   const toggleDropdown = () => {
-    // setIsDropdownOpen(!isDropdownOpen);
     setisNav(false); 
   };
   const logOut = () => {
@@ -38,7 +36,7 @@ function Header() {
     });
   }
   return (
-    <nav className="bg-body-tertiary sm:h-16 md:h-20 flex items-center fixed inset-x-0 z-50 ">
+    <nav className="bg-body-tertiary flex items-center sm:h-16 md:h-20 flex items-center fixed inset-x-0 z-50 ">
       <div className="container mx-auto grid grid-cols-3 gap-auto lg:flex justify-between px-4">
         <Link to='/'>
           <img
@@ -53,7 +51,7 @@ function Header() {
           <Link to='/' className='font-bold text-black text-center'>
             INFORSA
           </Link>
-          <div className='font-light text-sm text-center'>Information System Association</div>
+          <div className='font-light lg:text-sm text-xs lg:text-center text-left'>Information System Association</div>
         </div>
         <div
           className="block bg-transparent lg:hidden focus:outline-none flex justify-end mt-1"
@@ -74,7 +72,7 @@ function Header() {
             ></path>
           </svg>
         </div>
-        <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 text-left lg:block ${isNav ? 'block' : 'hidden'}`}>
+        <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 lg:block ${isNav ? 'block w-screen pr-12 text-center' : 'hidden text-left'}`}>
           <Linkdom
             href='#'
             to="/"

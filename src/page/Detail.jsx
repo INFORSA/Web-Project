@@ -6,7 +6,7 @@ function Detail(){
     const { id } = useParams();
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
-      const response = await Axios.get(`https://qkrmjmws-8000.asse.devtunnels.ms/api/Artikel/${id}`);
+      const response = await Axios.get(`https://api.inforsa-unmul.org/api/Artikel/${id}`);
       setKonten(response.data);
       };
     useEffect(() => {
@@ -29,7 +29,7 @@ function Detail(){
                     <h3>Dirilis oleh {item.Depart}</h3>
                     <h3>{getFormat(item.Waktu)}</h3>
                 </div>
-                <h1>{item.Judul}</h1>
+                <h1 className="my-3 font-semibold text-5xl">{item.Judul}</h1>
                 <article className="my-3">
                     <img src={`/uploads/${item.Gambar}`} alt="" />
                     <p className="container text-xl font-base my-3" dangerouslySetInnerHTML={{ __html: item.Isi }}/>

@@ -17,23 +17,17 @@ function UpEvent() {
     formData.append("Isi", isi);
 
     try {
-      const response = await fetch("http://localhost:8000/api/event", {
+      fetch("https://api.inforsa-unmul.org/api/event", {
         method: "POST",
         body: formData,
       });
-        if (response.ok) {
-            await Swal.fire({
-              title: "Berhasil",
-              text: "Kegiatan berhasil ditambahkan",
-              icon: "success"
-            }).then(() => {
-              window.location.href = '/MoreEvent';
-            });
-        } 
-        else {
-            const errorMessage = await response.text();
-            alert(`Gagal mengunggah artikel. Error: ${errorMessage}`);
-        }
+      await Swal.fire({
+        title: "Berhasil",
+        text: "Kegiatan berhasil ditambahkan",
+        icon: "success"
+      }).then(() => {
+        window.location.href = '/MoreEvent';
+      });
     } catch (error) {
         console.error("Terjadi kesalahan.Error:", error);
     }

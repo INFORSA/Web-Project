@@ -10,7 +10,7 @@ function Article(){
       }, []); 
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
-        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
+        const response = await Axios.get("https://api.inforsa-unmul.org/api/get");
         setKonten(response.data);
       };
     return(
@@ -24,7 +24,7 @@ function Article(){
                 </div>
                 <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full bg-gray-300'>
                     <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
-                    <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
+                    {/* <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/> */}
                     <div className="flex justify-between items-start text-right">
                         <h4 className='text-sm font-thin'>Dirilis oleh Departemen {item.Depart}</h4>
                         <Link to={`/Artikel/${item.ID_Konten}`}>

@@ -37,7 +37,7 @@ function Upload() {
     formData.append("Isi", isi);
 
     try {
-      const response = await fetch("http://localhost:8000/api/insert", {
+      const response = await fetch("https://api.inforsa-unmul.org/api/insert", {
         method: "POST",
         body: formData,
       });
@@ -97,6 +97,7 @@ function Upload() {
             value={jenis}
             onChange={(e) => setJenis(e.target.value)}
           >
+            <MenuItem value="BPI">BPI</MenuItem>
             <MenuItem value="KPSDM">KPSDM</MenuItem>
             <MenuItem value="RPPM">RPPM</MenuItem>
             <MenuItem value="RELEKAT">RELEKAT</MenuItem>

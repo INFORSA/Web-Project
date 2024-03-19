@@ -66,8 +66,10 @@
     color: white;
 }
 .bg-login{
-    background-image: url(./assets/bg3.jpg);
+    background-image: url(./assets/bg4.png);
     background-size: cover;
+    background-attachment: fixed;
+    object-fit: cover;
 }
 .bg-card1{
     background-image: url(./assets/bg3.jpg);

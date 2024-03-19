@@ -40,14 +40,12 @@ function App() {
   const isLoggedIn = localStorage.getItem("token") !== null;
   const [getKonten,setKonten]= useState([]);
   const getProducts = async () => {
-      const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/get");
+      const response = await Axios.get("https://api.inforsa-unmul.org/api/get");
       setKonten(response.data);
     };
   const checkTokenValidity = () => {
       const storedToken = localStorage.getItem('expiredTime');
       if (isLoggedIn) {
-        console.log('now',Date.now())
-        console.log('expired',localStorage.getItem('expiredTime'))
           if (storedToken < Date.now()) {
               localStorage.removeItem('token');
               localStorage.removeItem('expiredTime');

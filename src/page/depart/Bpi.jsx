@@ -18,7 +18,7 @@ function Bpi(){
     const localizer = momentLocalizer(moment)
     const [Proker,setProker]= useState([]);
     const getProker = async () => {
-        const response = await Axios.get("https://qkrmjmws-8000.asse.devtunnels.ms/api/getProker");
+        const response = await Axios.get("https://api.inforsa-unmul.org/api/getProker");
         setProker(response.data);
       };
     return(
@@ -59,10 +59,10 @@ function Bpi(){
             <div className="my-3 bg-cyan-950 flex justify-around mx-auto items-center text-white px-3 py-4 rounded-lg">
                 <div>
                     <h2 className="text-center">Program Kerja Total</h2>
-                    <h3 className="text-center">0</h3>
+                    <h3 className="text-center">33</h3>
                 </div>
                 <div>
-                    <h2 className="text-center">Jumlah Staff Pengurus</h2>
+                    <h2 className="text-center">Jumlah Staff & Pengurus</h2>
                     <h3 className="text-center">0</h3>
                 </div>
                 <div>
