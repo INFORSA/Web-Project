@@ -9,10 +9,10 @@ function About(){
             <img className='h-80' src={logo} alt="" />    
             <div className='flex items-center justify-start text-left'>
                 <div>
-                    <div className='text-3xl font-extrabold'>APA ITU INFORSA?</div>
-                    <div>
-                        INFORSA adalah Himpunan Mahasiswa Program Studi Sistem Informasi Universitas Mulawarman
-                    </div>
+                    <h1 className='text-3xl font-extrabold'>APA ITU INFORSA?</h1>
+                    <h2 className='text-md font-thin'>
+                        INFORSA atau Information System Association adalah Himpunan Mahasiswa yang berada pada Program Studi Sistem Informasi Universitas Mulawarman.
+                    </h2>
                 </div>
             </div>
         </div>

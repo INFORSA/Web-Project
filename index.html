@@ -10,20 +10,24 @@
       crossorigin="anonymous"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INFORSA</title>
-        <script type="text/javascript">
-          (function(l) {
-            if (l.search[1] === '/' ) {
-              var decoded = l.search.slice(1).split('&').map(function(s) { 
-                return s.replace(/~and~/g, '&')
-              }).join('?');
-              window.history.replaceState(null, null,
-                  l.pathname.slice(0, -1) + decoded + l.hash
-              );
-            }
-          }(window.location))
-        </script>
-        <!-- End Single Page Apps for GitHub Pages -->
+    <title>Information System Association</title>
+    <meta name="description" content="INFORSA atau Information System Association adalah Himpunan Mahasiswa yang berada pada Program Studi Sistem Informasi Universitas Mulawarman.">
+    <meta property="og:title" content="INFORSA UNMUL - Information System Association" />
+    <meta property="og:url" content="https://www.inforsa-unmul.org" />
+    <meta property="og:type" content="website" />
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
   </head>
   <body>
     <div id="root"></div>

@@ -26,23 +26,18 @@ import All from './page/All'
 import Bpi from './page/depart/Bpi'
 import MoreEvent from './page/MoreEvent'
 import UpEvent from './page/UpEvent'
-import Axios from 'axios'
-import { useEffect, useState } from 'react'
-import Galery from './component/organism/Galery'
+import { useEffect } from 'react'
+import Arsip from './page/Arsip'
+import { Helmet } from 'react-helmet'
+// import Galery from './component/organism/Galery'
 
 function App() {
   useEffect(() => {
-    getProducts();
     checkTokenValidity();
     window.scrollTo(0, 0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
   const isLoggedIn = localStorage.getItem("token") !== null;
-  const [getKonten,setKonten]= useState([]);
-  const getProducts = async () => {
-      const response = await Axios.get("https://api.inforsa-unmul.org/api/get");
-      setKonten(response.data);
-    };
   const checkTokenValidity = () => {
       const storedToken = localStorage.getItem('expiredTime');
       if (isLoggedIn) {
@@ -56,15 +51,18 @@ function App() {
   return (
     <div> 
       <Header/>
-      <div className='pt-24 lg:pt-20'>
+      <div className='pt-20'>
         <Routes>
           <Route exact path='/' element={
             <div className='bg-main'>
+              <Helmet>
+                <title>Information System Association</title>
+              </Helmet>
               <LandingPage/>
               <About/>
               <Event/>
               <Highlight/>
-              <Galery/>
+              {/* <Galery/> */}
               <Kabinet/>
               <VisiMisi/>
               <BadanInti/>
@@ -74,7 +72,7 @@ function App() {
             </div>
           }/>
           <Route path='/BPI' element={<Bpi/>}/>
-          <Route path='/KPSDM' element={<Kpsdm API={getKonten}/>}/>
+          <Route path='/KPSDM' element={<Kpsdm/>}/>
           <Route path='/RPPM' element={<Rppm/>}/>
           <Route path='/RELEKAT' element={<Relekat/>}/>
           <Route path='/KOMINFO' element={<Kominfo/>}/>
@@ -89,10 +87,12 @@ function App() {
               <Route path='/UpEvent' element={<UpEvent/>}/>
               <Route path='/Proker' element={<Proker/>}/>
               <Route path='/Upload' element={<Upload/>}/>
+              <Route path='/Arsip' element={<Arsip/>}/>
             </>
             ):(<>
-              <Route path='/UpEvent' element={<Login/>}/>
+              <Route path='/UpEvent'  element={<Login/>}/>
               <Route path='/Proker' element={<Login/>}/>
+              <Route path='/Arsip' element={<Login/>}/>
               <Route path='/Upload' element={<Login/>}/>
             </>
           )}

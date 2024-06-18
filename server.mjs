@@ -28,7 +28,7 @@ const authDataMap = new Map();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/uploads');
+    cb(null, '.uploads');
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -66,6 +66,35 @@ server.post('/api/insert', upload.single('Gambar'), (req, res) => {
     }
   })
 });
+
+server.post('/api/arsip', upload.single('Gambar'), (req, res) => {
+  db.connect(() => {
+    const { Token, No_Surat, Tujuan, Tanggal, Perihal } = req.body;
+    const Gambar = req.file.filename; 
+    const authData = authDataMap.get(Token).userId;
+    console.log('ini authentication',authData)
+    if(authData){
+      const ID_AdminValue = authData; 
+      const sqlInsert = `INSERT INTO arsip_surat (No_Surat, ID_Admin, Tujuan, Tanggal, Perihal, Foto_Surat) VALUES (?, ?, ?, ?, ?, ?)`;
+      const values = [No_Surat, ID_AdminValue, Tujuan, Tanggal, Perihal, Gambar];
+    
+      db.query(sqlInsert, values, (err, fields) => {
+        if (err) {
+          console.error('Error = ',err);
+          res.status(500).send('Gagal menyimpan data.');
+        } else {
+          if (fields.affectedRows) {
+            response(200, "INI INSERT", "BERHASIL", res);
+          } else {
+            console.log("Gagal menyimpan data.");
+          }
+          console.log(fields);
+        }
+      });
+    }
+  })
+});
+
 
 server.get('/api/get', (req, res) => {
     const sqlSelect = "SELECT * FROM artikel";
@@ -153,6 +182,35 @@ server.post('/api/event', upload.none(), (req, res) => {
       }
       console.log(fields);
     }
+  });
+});
+
+server.post('/api/arsip_surat', upload.none(), (req, res) => {
+  const { No_Surat, ID_Admin, Tujuan, Tanggal, Perihal } = req.body;
+  console.log("Received Request Body:", req.body);
+  const sqlInsert = `INSERT INTO arsip_surat (No_Surat, ID_Admin, Tujuan, Tanggal, Perihal) VALUES (?, ?, ?, ?, ?)`;
+  const values = [No_Surat, ID_Admin, Tujuan, Tanggal, Perihal];
+  db.query(sqlInsert, values, (err, fields) => {
+    if (err) {
+      console.error('Error = ',err);
+      res.status(500).send('Gagal menyimpan data.');
+    } else {
+      if (fields.affectedRows) {
+        response(200, "INI INSERT", "BERHASIL", res);
+      } else {
+        console.log("Gagal menyimpan data.");
+      }
+      console.log(fields);
+    }
+  });
+});
+
+server.get('/api/getSurat', (req, res) => {
+  const { ID_Admin } = req.params;
+  const sqlSelect = "SELECT FROM arsip_surat WHERE ID_Admin = ?";
+  const values = [ID_Admin];
+  db.query(sqlSelect, values, (err, result) => {
+      res.send(result);
   });
 });
 

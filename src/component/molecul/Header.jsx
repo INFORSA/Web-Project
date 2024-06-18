@@ -36,8 +36,8 @@ function Header() {
     });
   }
   return (
-    <nav className="bg-body-tertiary flex items-center sm:h-16 md:h-20 flex items-center fixed inset-x-0 z-50 ">
-      <div className="container mx-auto grid grid-cols-3 gap-auto lg:flex justify-between px-4">
+    <nav className="bg-body-tertiary flex items-center sm:h-auto md:h-20 flex items-center fixed inset-x-0 z-50 border-b-4 border-blue-950">
+      <div className="w-full mx-auto grid grid-cols-3 gap-auto lg:flex md:flex justify-between md:justify-evenly md:items-center px-4">
         <Link to='/'>
           <img
             src={INFORSA}
@@ -51,10 +51,10 @@ function Header() {
           <Link to='/' className='font-bold text-black text-center'>
             INFORSA
           </Link>
-          <div className='font-light lg:text-sm text-xs lg:text-center text-left'>Information System Association</div>
+          <div className='font-light lg:text-sm text-xs text-center md:text-left'>Information System Association</div>
         </div>
         <div
-          className="block bg-transparent lg:hidden focus:outline-none flex justify-end mt-1"
+          className="block bg-transparent lg:hidden md:hidden focus:outline-none flex justify-end mt-1"
           onClick={toggleNav}
         >
           <svg
@@ -72,7 +72,8 @@ function Header() {
             ></path>
           </svg>
         </div>
-        <div className={`lg:flex lg:flex-grow  lg:space-x-6 lg:ml-5 mt-4 sm:mt-0 lg:block ${isNav ? 'block w-screen pr-12 text-center' : 'hidden text-left'}`}>
+        <div className={`lg:flex md:flex lg:flex-grow md:flex-grow md:ml-5 lg:ml-12 mt-2 sm:mt-0 lg:mb-2 lg:block ${isNav ? 'block w-screen pr-12 text-center' : 'hidden text-left'}`}>
+        <div className='h-28 md:h-full lg:h-full w-full inline-block mt-2 flex justify-center ml-0 lg:ml-40 gap-3 px-0 flex-col md:flex-row lg:flex-row'>
           <Linkdom
             href='#'
             to="/"
@@ -91,7 +92,7 @@ function Header() {
             smooth={true}
             offset={-100}
             duration={500}
-            className="block lg:inline-block text-black hover:text-gray-400"
+            className="block lg:inline-block text-black hover:text-gray-400 mx-4"
           >
             About
           </Linkdom>
@@ -106,7 +107,7 @@ function Header() {
                 className="justify-center font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
                 onClick={toggleDropdown}
               >
-                Departemen
+                Dept/Biro
               </a>
               <div
                 className={`origin-top-right absolute left-0 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${isDropdownOpen ? 'block' : 'hidden'}`}
@@ -122,14 +123,15 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className='w-full flex flex-col sm:flex-row justify-end items-left mb-3'>
+          </div>
+          <div className='w-full flex flex-col sm:flex-row justify-center lg:justify-end items-left mt-1'>
             {isLoggedIn ? (
               <>
-                <Link to='/Upload' className="text-center inline-block text-black text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400 ">Upload</Link>
-                <button onClick={logOut} className='lg:ml-4 inline-block text-red-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400'>Log Out</button>
+                <Link to='/Upload' className="text-center text-black text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400 ">Upload</Link>
+                <button onClick={logOut} className='lg:ml-4 text-red-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400'>Log Out</button>
               </>
             ) : (
-              <Link to='/Login' className="text-center inline-block text-green-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400">Login</Link>
+              <Link to='/Login' className="text-center text-green-500 text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400">Login</Link>
             )}
           </div>
         </div>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Axios from 'axios'
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Detail(){
     const { id } = useParams();
@@ -24,6 +26,11 @@ function Detail(){
         <div className="container min-h-screen">
             {getKonten.map((item,idx)=>(
                 <div key={idx}>
+                <Helmet>
+                    <title>
+                        {item.Judul}
+                    </title>
+                </Helmet>
                 <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">Artikel {item.Depart}</h1>
                 <div className="flex justify-evenly">
                     <h3>Dirilis oleh {item.Depart}</h3>
@@ -31,8 +38,8 @@ function Detail(){
                 </div>
                 <h1 className="my-3 font-semibold text-5xl">{item.Judul}</h1>
                 <article className="my-3">
-                    <img src={`/uploads/${item.Gambar}`} alt="" />
-                    <p className="container text-xl font-base my-3" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
+                    <LazyLoadImage loading="lazy" src={`/uploads/${item.Gambar}`} className="w-full h-96 object-cover" alt="" />
+                    <p className="container text-xl font-base my-3 text-jusitfy" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
                 </article>
             </div>
             ))}

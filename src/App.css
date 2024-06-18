@@ -66,10 +66,8 @@
     color: white;
 }
 .bg-login{
-    background-image: url(./assets/bg4.png);
+    background-image: url(./assets/bglogin.png);
     background-size: cover;
-    background-attachment: fixed;
-    object-fit: cover;
 }
 .bg-card1{
     background-image: url(./assets/bg3.jpg);
@@ -113,6 +111,15 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+@media (max-width:769px) {
+    .bg-login{
+        background-image: url(./assets/bglogin2.png);
+        background-size: cover;
+    }
+    .bg-form-login{
+        background-color: #1A1B3F;
+    }
+}
 @media (max-width: 480px) {
     .bg-bpi{
         background-image: url(./assets/bg2.png);
@@ -125,6 +132,9 @@
     }
     .bg-kabinet {
         background-attachment: scroll; 
+    }
+    .bg-form-login{
+        background-color: transparent;
     }
 }
 .custom-nav-dropdown:hover .hover-dropdown {

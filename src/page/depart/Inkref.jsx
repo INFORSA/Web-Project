@@ -12,6 +12,7 @@ import bph from '../../assets/Galery/Depart/13.png';
 import staff from '../../assets/Galery/Depart/14.png';
 import staff2 from '../../assets/Galery/Depart/15.png';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Swal from "sweetalert2";
 
 
 function Inkref(){
@@ -31,20 +32,28 @@ function Inkref(){
         const response = await Axios.get("https://api.inforsa-unmul.org/api/get");
         setKonten(response.data);
       };
+    const handleSelectEvent = (event) => {
+        Swal.fire({
+          title: event.title,
+          text: `Start: ${event.start.toLocaleString()} \n End: ${event.end.toLocaleString()}`,
+          icon: 'info',
+          confirmButtonText: 'Ok'
+        });
+      };
     return(
         <div className="container">
             <div className="w-full grid gap-4 lg:grid-cols-2 md:grid-cols-1 my-3">
                 <Link to='/Store' className="text-black">
                     <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
                     transform transition-transform duration-300 ease-in-out hover:scale-110">
-                            <img className="w-20 mx-auto mt-3" src={image} alt="" />
+                            <LazyLoadImage loading="lazy" className="w-20 mx-auto mt-3" src={image} alt="" />
                             <h2 className="text-3xl mt-4 font-bold font-serif">STORE</h2>
                             <h3 className="text-md font-thin mt-4 mb-3">Informasi seputar INFORSA Store</h3>
                     </div>
                 </Link>
                 <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
                 transform transition-transform duration-300 ease-in-out hover:scale-110">
-                    <img className="w-20 mx-auto mt-3" src={image} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">STAND</h2>
                     <h3 className="text-md font-thin mt-4 mb-3">Informasi seputar INFORSA Stand</h3>
                 </div>
@@ -70,15 +79,15 @@ function Inkref(){
                     </div>
                 </div>
                 <div className="flex-1">
-                    <LazyLoadImage className="object-cover" src={Depart[4].img} alt="" />
+                    <LazyLoadImage loading="lazy" className="object-cover" src={Depart[4].img} alt="" />
                 </div>
             </div>
             <div className='p-5 bg-white my-3 rounded-lg shadow-xl h-full'>
                 <h1 className='text-5xl mb-3 text-start font-serif font-bold'>Galery</h1>
                 <div className="grid grid-cols-3 gap-3">
-                    <LazyLoadImage className="w-96" src={bph} alt="" />
-                    <LazyLoadImage className="w-96" src={staff} alt="" />
-                    <LazyLoadImage className="w-96" src={staff2} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-96" src={bph} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-96" src={staff} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-96" src={staff2} alt="" />
                 </div>
             </div>
             <div>
@@ -94,6 +103,7 @@ function Inkref(){
                         end: new Date(proker.End_Date),
                         color: "#007bff",
                       }))}
+                    onSelectEvent={handleSelectEvent}
                     startAccessor="start"
                     endAccessor="end"
                     style={{ height: 500 }}
@@ -101,13 +111,13 @@ function Inkref(){
             </div>
             <article className="my-5">
                 <h2 className="text-3xl font-md">Publikasi Kegiatan</h2>
-                <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
+                <div className="w-full grid grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
                     {getKonten.map((item,idx)=>{
                         if(item.Depart === 'INKREF'){
                             return(
                                 <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>
                                 <div className='rounded-lg flex justify-center items-center'>
-                                    <LazyLoadImage className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
+                                    <LazyLoadImage loading="lazy" className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
                                 </div>
                                 <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full bg-gray-300'>
                                     <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>

@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
 import CryptoJS from "crypto-js";
+import { motion } from "framer-motion";
+import { scaleDown } from "../framerMotion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Login(){
     useEffect(()=>{
@@ -73,22 +76,47 @@ function Login(){
         }
     }
     return(
-        <div className="min-h-screen bg-login flex items-center justify-center">
-            <div className='bg-white shadow-xl border border-xl p-4 rounded-2xl'>
+    <motion.div {...scaleDown} id='/' className="w-full h-auto overflow-x-hidden overflow-y-hidden">
+        <div className="min-h-screen bg-login flex items-center justify-center lg:justify-end">
+            <div className='p-4 lg:bg-transparent md:bg-blue-950 bg-form-login'>
                 <div className="flex justify-center">
-                    <img className="w-24" src={image} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-24" src={image} alt="" />
                 </div>
-                <h1 className='text-4xl text-center font-bold font-serif'>Welcome Back</h1>
-                <form onSubmit={handleProcess}>
+                <h1 className='text-4xl text-center font-bold font-serif text-white'>Welcome Back</h1>
+                <form onSubmit={handleProcess} className="text-white">
                     <TextField
+                        className="text-white"
                         label="Username"
+                        sx={{
+                            '& label': {
+                              color: 'white',
+                            },
+                            '& label.Mui-focused': {
+                              color: 'white',
+                            },
+                            '& .MuiInputBase-input':{
+                                color:'white'
+                            }
+                          }}
                         fullWidth
                         variant="outlined"
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value) }
                         margin="normal"
                     />
                     <TextField
+                        className="text-white"
                         label="Password"
+                        sx={{
+                            '& label': {
+                              color: 'white',
+                            },
+                            '& label.Mui-focused': {
+                              color: 'white',
+                            },
+                            '& .MuiInputBase-input':{
+                                color:'white'
+                            }
+                          }}
                         fullWidth
                         variant="outlined"
                         type="password"
@@ -101,6 +129,7 @@ function Login(){
                 </form>
             </div> 
         </div>
+    </motion.div>
     )
 }
 

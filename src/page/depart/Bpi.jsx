@@ -9,6 +9,10 @@ import moment from 'moment';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Bendum from "../../component/organism/BPI/Bendum";
+import Swal from "sweetalert2";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import struktur from '../../assets/STRUKTUR2024.png';
 
 function Bpi(){
     useEffect(() => {
@@ -21,23 +25,35 @@ function Bpi(){
         const response = await Axios.get("https://api.inforsa-unmul.org/api/getProker");
         setProker(response.data);
       };
+    const handleSelectEvent = (event) => {
+        Swal.fire({
+          title: event.title,
+          text: `Start: ${event.start.toLocaleString()} \n End: ${event.end.toLocaleString()}`,
+          icon: 'info',
+          confirmButtonText: 'Ok'
+        });
+      };
     return(
         <div className="container">
             <div className="w-full grid gap-4 lg:grid-cols-2 md:grid-cols-2 my-3">
                 <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg 
                 transform transition-transform duration-300 ease-in-out hover:scale-110">
-                    <img className="w-20 mx-auto mt-3" src={image} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">INSEVENT</h2>
                     <h3 className="text-md mt-4 mb-3">Informasi seputar INSEVENT 2024</h3>
                 </div>
                 <div className="border text-center border-blue-500 border-solid border-2 w-auto rounded-lg
                 transform transition-transform duration-300 ease-in-out hover:scale-110">
-                    <img className="w-20 mx-auto mt-3" src={image} alt="" />
+                    <LazyLoadImage loading="lazy" className="w-20 mx-auto mt-3" src={image} alt="" />
                     <h2 className="text-3xl mt-4 font-bold font-serif">OPREC</h2>
                     <h3 className="text-md mt-4 mb-3">Informasi seputar OPREC Pengurus 2024</h3>
                 </div>
             </div>
             <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">{Depart[5].depart}</h1>
+            <div>
+                <h1 className="text-3xl font-md my-2">Struktural Kepengurusan 2024</h1>
+                <LazyLoadImage loading="lazy" className="w-full" src={struktur}></LazyLoadImage>
+            </div>
             <div className="my-3">
                 <h1 className="text-3xl font-md my-2">Kalender {Depart[5].depart}</h1>
                 <Link to='/Proker'>
@@ -51,6 +67,7 @@ function Bpi(){
                         end: new Date(proker.End_Date),
                         color: "#007bff",
                       }))}
+                    onSelectEvent={handleSelectEvent}
                     startAccessor="start"
                     endAccessor="end"
                     style={{ height: 500 }}
@@ -63,16 +80,14 @@ function Bpi(){
                 </div>
                 <div>
                     <h2 className="text-center">Jumlah Staff & Pengurus</h2>
-                    <h3 className="text-center">0</h3>
+                    <h3 className="text-center">116</h3>
                 </div>
                 <div>
                     <h2 className="text-center">Jumlah Departemen/Biro</h2>
                     <h3 className="text-center">5</h3>
                 </div>
             </div>
-            <div>
-                {/* <Money/> */}
-            </div>
+            <Bendum/>
         </div>
     )
 }
