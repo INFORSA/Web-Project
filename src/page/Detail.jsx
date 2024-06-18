@@ -39,7 +39,7 @@ function Detail(){
                 <h1 className="my-3 font-semibold text-5xl">{item.Judul}</h1>
                 <article className="my-3">
                     <LazyLoadImage loading="lazy" src={`/uploads/${item.Gambar}`} className="w-full h-96 object-cover" alt="" />
-                    <p className="container text-xl font-base my-3 text-jusitfy" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
+                    <p className="container text-xl font-base my-3 text-justify" dangerouslySetInnerHTML={{ __html: item.Isi }}/>
                 </article>
             </div>
             ))}
