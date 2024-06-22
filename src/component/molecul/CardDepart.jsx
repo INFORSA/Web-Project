@@ -70,7 +70,7 @@ function CardDepart({Departemen}){
             <article className="my-5">
                 <h2 className="text-3xl font-md">Publikasi Kegiatan</h2>
                 <div className="w-full grid grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2 my-3">
-                    {getKonten.map((item,idx)=>(
+                    {getKonten.slice(0,3).map((item,idx)=>(
                         <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>
                         <div className='rounded-lg flex justify-center items-center'>
                             <LazyLoadImage loading="lazy" className="h-60 object-cover w-full" src={`/uploads/${item.Gambar}`} alt="" />
