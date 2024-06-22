@@ -3,6 +3,7 @@ import { Container, Typography, TextField, Button, Select, MenuItem, FormControl
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 function Upload() {
   const [judul, setJudul] = useState("");
@@ -65,6 +66,9 @@ function Upload() {
 
   return (
     <div className="my-5">
+    <Helmet>
+        <title>Upload Artikel</title>
+    </Helmet>
     <Container>
       <Typography variant="h4" align="center" gutterBottom>
         Upload Kegiatan

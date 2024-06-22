@@ -7,6 +7,7 @@ import CryptoJS from "crypto-js";
 import { motion } from "framer-motion";
 import { scaleDown } from "../framerMotion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Helmet } from "react-helmet";
 
 function Login(){
     useEffect(()=>{
@@ -50,9 +51,19 @@ function Login(){
         .then(response => response.json())
         .then(data => {
             console.log('Respon dari server:', data);
+            Swal.fire({
+                title: "Gagal Login",
+                text: "Terjadi kesalahan saat mencoba login.",
+                icon: "error"
+            });
         })
         .catch(error => {
             console.error('Gagal melakukan permintaan ke server:', error);
+            Swal.fire({
+                title: "Gagal Login",
+                text: "Terjadi kesalahan saat mencoba login.",
+                icon: "error"
+            });
         });
         if(found){
             localStorage.setItem('token', generatedToken)
@@ -66,7 +77,6 @@ function Login(){
                     window.location.href = '/';
                   });
             } catch (error) {
-                console.error(error);
                 Swal.fire({
                     title: "Gagal Login",
                     text: "Terjadi kesalahan saat mencoba login.",
@@ -77,6 +87,9 @@ function Login(){
     }
     return(
     <motion.div {...scaleDown} id='/' className="w-full h-auto overflow-x-hidden overflow-y-hidden">
+        <Helmet>
+            <title>Login INFORSA 2024</title>
+        </Helmet>
         <div className="min-h-screen bg-login flex items-center justify-center lg:justify-end">
             <div className='p-4 lg:bg-transparent md:bg-blue-950 bg-form-login'>
                 <div className="flex justify-center">

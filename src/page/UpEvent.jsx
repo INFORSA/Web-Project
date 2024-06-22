@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Typography, TextField, Button } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 function UpEvent() {
   const [title, setTitle] = useState("");
@@ -39,6 +40,9 @@ function UpEvent() {
 
   return (
     <div className="my-5">
+    <Helmet>
+        <title>Upload Event</title>
+    </Helmet>
     <Container>
       <Typography variant="h4" align="center" gutterBottom>
         Upload UPCOMING EVENT

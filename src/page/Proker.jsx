@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 function Proker() {
   const [title, setTitle] = useState("");
@@ -55,6 +56,9 @@ function Proker() {
 
   return (
     <div className="my-5">
+    <Helmet>
+        <title>Upload Proker</title>
+    </Helmet>
     <Container>
       <Typography variant="h4" align="center" gutterBottom>
         Upload Timeline

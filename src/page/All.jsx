@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Helmet } from 'react-helmet';
 
 function All(){
     useEffect(() => {
@@ -16,7 +17,10 @@ function All(){
       };
     return(
     <div className="container">
-        <div className="text-center text-4xl font-bold">Publikasi Kegiatan</div>
+        <Helmet>
+            <title>Semua Artikel</title>
+        </Helmet>
+        <div className="text-center text-4xl font-bold">Artikel Kegiatan</div>
         <div className="container grid grid-cols-1 gap-5 mx-auto lg:grid-cols-3 md:grid-cols-2 my-3">
             {getKonten.map((item,idx)=>(
                 <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>

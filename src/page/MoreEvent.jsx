@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Helmet } from 'react-helmet';
 
 function MoreEvent(){
     useEffect(() => {
@@ -25,6 +26,9 @@ function MoreEvent(){
     };
     return(
         <div className="min-h-screen container">
+            <Helmet>
+                <title>Event</title>
+            </Helmet>
             <h1 className="bg-blue-950 my-4 px-3 rounded-lg text-white py-4 text-5xl font-bold text-center">UPCOMING EVENT</h1>
             <Link to='/UpEvent' className='flex justify-end'>
                 <Button className="my-2 border border-black text-black hover:font-bold font-semibold" variant="secondary"><FontAwesomeIcon style={{ fontSize: '0.8em' }} icon={faPlus} /> Kegiatan</Button>

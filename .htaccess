@@ -7,3 +7,6 @@
   RewriteRule . /index.html [L]
   Header set Access-Control-Allow-Origin '*'
 </IfModule>
+<FilesMatch \.xml$>
+  Header set Content-Type "application/xml"
+</FilesMatch>
