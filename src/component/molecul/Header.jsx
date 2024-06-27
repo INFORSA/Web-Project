@@ -124,7 +124,7 @@ function Header() {
             </div>
           </div>
           </div>
-          <div className='w-full flex flex-col sm:flex-row justify-center lg:justify-end items-left mt-1'>
+          <div className='w-full flex flex-col sm:flex-row justify-center lg:justify-end items-left my-1'>
             {isLoggedIn ? (
               <>
                 <Link to='/Upload' className="text-center text-black text-sm px-4 py-2 leading-none border rounded border-transparent hover:border-gray-400 ">Upload</Link>

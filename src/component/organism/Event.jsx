@@ -37,18 +37,16 @@ function Event(){
         setKonten(response.data);
       };
     return(
-        <div className="mb-3">
+        <div className="mb-5 bg-white py-5">
         <div className="container grid lg:grid-cols-3 md:grid-cols-2 min-h-sreen lg:h-72 w-full">
-            <div className="bg-blue-950 border-3 border-black border-3 border-black w-full text-white flex justify-center items-center mx-auto
-            transform transition-transform duration-300 ease-in-out hover:scale-110">
+            <div className="bg-blue-950 border-3 border-black border-3 border-black w-full text-white flex justify-center items-center mx-auto">
                 <div>
                     <img src="" alt="" />
                     <h1 className="font-bold">INFORSA</h1>
                     <p className="text-sm font-light text-center">2024</p>
                 </div>
             </div>
-            <div onClick={getEvent} className="bg-blue-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto
-            transform transition-transform duration-300 ease-in-out hover:scale-110">
+            <div onClick={getEvent} className="bg-blue-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto">
                 <div>
                     <h1 className="font-semibold text-4xl">COMING SOON</h1>
                     <h2 className="text-lg">INSEVENT 2024</h2>
@@ -56,8 +54,7 @@ function Event(){
                 </div>
                 <Link className="text-white text-3xl">See...</Link>
             </div>
-            <div className="bg-sky-950 border-3 border-black p-4 w-full text-white flex flex-col justify-between items-start mx-auto
-            transform transition-transform duration-300 ease-in-out hover:scale-110">
+            <div className="bg-sky-950 border-3 border-black p-4 w-full text-white flex flex-col justify-between items-start mx-auto">
                 <div>
                     <h2 className="text-md">Upcoming Events</h2>
                     {getKonten.map((item, idx)=>(
@@ -70,8 +67,7 @@ function Event(){
             </div>
         </div>
         <div className="container grid lg:grid-cols-2 md:grid-cols-2 min-h-sreen lg:h-72 w-full">
-            <div onClick={getAspirasi} className="bg-sky-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto
-            transform transition-transform duration-300 ease-in-out hover:scale-110">
+            <div onClick={getAspirasi} className="bg-sky-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto">
                 <div>
                     <h1 className="font-semibold text-4xl">COMING SOON</h1>
                     <h2 className="text-lg">Ruang Konsultasi dan Aspirasi Mahasiswa</h2>
@@ -79,8 +75,7 @@ function Event(){
                 </div>
                 <Link className="text-white text-3xl">See...</Link>
             </div>
-            <div onClick={getStore} className="bg-cyan-950 border-3 border-black w-full text-white flex justify-center items-center mx-auto
-            transform transition-transform duration-300 ease-in-out hover:scale-110">
+            <div onClick={getStore} className="bg-cyan-950 border-3 border-black w-full text-white flex justify-center items-center mx-auto">
                 <FontAwesomeIcon style={{ fontSize: '3em' }} icon={faBasketShopping} />
                 <div className="mx-3">
                     <img src="" alt="" />
