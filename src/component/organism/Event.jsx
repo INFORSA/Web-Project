@@ -33,7 +33,7 @@ function Event(){
       }, []); 
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
-        const response = await Axios.get("https://api.inforsa-unmul.org/api/Upcoming/count");
+        const response = await Axios.get(`${import.meta.env.VITE_COUNT_EVENT}`);
         setKonten(response.data);
       };
     return(

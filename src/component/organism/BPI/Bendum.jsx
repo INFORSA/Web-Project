@@ -13,11 +13,11 @@ function Bendum(){
     const [danaOut, setDanaOut]= useState([]);
     let totalDana = danaIn - danaOut;
     const getDanaIn = async () => {
-        const response = await Axios.get("https://api.inforsa-unmul.org/api/Dana-in");
+        const response = await Axios.get(`${import.meta.env.VITE_INCOME}`);
         setDanaIn(response.data[0].dana_masuk);
       };
     const getDanaOut = async () => {
-        const response = await Axios.get("https://api.inforsa-unmul.org/api/Dana-out");
+        const response = await Axios.get(`${import.meta.env.VITE_OUTCOME}`);
         setDanaOut(response.data[0].dana_keluar);
       };
     return(

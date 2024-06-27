@@ -38,6 +38,7 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
   const isLoggedIn = localStorage.getItem("token") !== null;
+  console.log(localStorage.getItem("token"));
   const checkTokenValidity = () => {
       const storedToken = localStorage.getItem('expiredTime');
       if (isLoggedIn) {

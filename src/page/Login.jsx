@@ -1,4 +1,4 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, InputAdornment, IconButton } from "@mui/material";
 import image from '../assets/inforsa.png'
 import { useEffect, useState } from "react";
 import Axios from 'axios';
@@ -8,18 +8,19 @@ import { motion } from "framer-motion";
 import { scaleDown } from "../framerMotion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function Login(){
     useEffect(()=>{
         getAcc();
         window.scrollTo(0, 0);
     },[])
-    const secretKey = 'INFORSASIUNMUL2024'
+    const secretKey = import.meta.env.VITE_SECRETKEY
     const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
     const [Acc,setAcc]= useState([]);
     const getAcc = async () => {
-        const response = await Axios.get("https://api.inforsa-unmul.org/api/getAcc");
+        const response = await Axios.get(`${import.meta.env.VITE_ACC}`);
         setAcc(response.data);
       };
     const generateToken = () => {
@@ -41,7 +42,7 @@ function Login(){
             userId: ID,
             userToken: Token
           };
-        fetch('https://api.inforsa-unmul.org/api/auth', {
+        fetch(`${import.meta.env.VITE_LOGIN}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -49,22 +50,12 @@ function Login(){
         body: JSON.stringify(requestData),
         })
         .then(response => response.json())
-        .then(data => {
-            console.log('Respon dari server:', data);
-            Swal.fire({
-                title: "Gagal Login",
-                text: "Terjadi kesalahan saat mencoba login.",
-                icon: "error"
-            });
-        })
-        .catch(error => {
-            console.error('Gagal melakukan permintaan ke server:', error);
-            Swal.fire({
-                title: "Gagal Login",
-                text: "Terjadi kesalahan saat mencoba login.",
-                icon: "error"
-            });
-        });
+        // .then(data => {
+        //     console.log('Respon dari server:', data);
+        // })
+        // .catch(error => {
+        //     console.error('Gagal melakukan permintaan ke server:', error);
+        // });
         if(found){
             localStorage.setItem('token', generatedToken)
             localStorage.setItem('ID', found.ID_Admin)
@@ -85,6 +76,11 @@ function Login(){
             }
         }
     }
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return(
     <motion.div {...scaleDown} id='/' className="w-full h-auto overflow-x-hidden overflow-y-hidden">
         <Helmet>
@@ -132,9 +128,23 @@ function Login(){
                           }}
                         fullWidth
                         variant="outlined"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         onChange={(e) => setPassword(e.target.value)}
                         margin="normal"
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleTogglePasswordVisibility}
+                                        edge="end"
+                                        className="text-white"
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            )
+                        }}
                     />
                     <Button onClick={handleProcess} type="button" variant="contained" color="success" className="mt-2 w-full">
                         Login

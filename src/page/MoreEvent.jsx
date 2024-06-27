@@ -21,7 +21,7 @@ function MoreEvent(){
     }));
     console.log(items)
     const getProker = async () => {
-        const response = await Axios.get("https://api.inforsa-unmul.org/api/Upcoming");
+        const response = await Axios.get(`${import.meta.env.VITE_EVENT}`);
         setProker(response.data);
     };
     return(

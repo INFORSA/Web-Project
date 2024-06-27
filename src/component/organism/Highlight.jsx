@@ -10,7 +10,7 @@ function Highlight() {
     }, []); 
   const [getKonten,setKonten]= useState([]);
   const getProducts = async () => {
-      const response = await Axios.get("https://api.inforsa-unmul.org/api/get");
+      const response = await Axios.get(`${import.meta.env.VITE_API_GET}`);
       setKonten(response.data);
     };
   return (

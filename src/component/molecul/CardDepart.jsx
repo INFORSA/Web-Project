@@ -4,7 +4,7 @@ import Axios from "axios";
 import { Button } from "react-bootstrap";
 import { Calendar,momentLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -20,13 +20,13 @@ function CardDepart({Departemen}){
 
     const [Proker,setProker]= useState([]);
     const getProker = async () => {
-        const response = await Axios.get(`https://api.inforsa-unmul.org/api/getProker/${Departemen}`);
+        const response = await Axios.get(`${import.meta.env.VITE_API_GETPROKER}/${Departemen}`);
         setProker(response.data);
     };
     const localizer = momentLocalizer(moment)
     const [getKonten,setKonten]= useState([]);
     const getProducts = async () => {
-        const response = await Axios.get(`https://api.inforsa-unmul.org/api/get/${Departemen}`);
+        const response = await Axios.get(`${import.meta.env.VITE_API_GET}/${Departemen}`);
         setKonten(response.data);
       };
     const options = {
@@ -38,10 +38,16 @@ function CardDepart({Departemen}){
         minute:'2-digit',
         hour12: false,
     };
+    const events = Proker.map(proker => ({
+        title: proker.Title,
+        start: moment.utc(proker.Start_Date).tz('Asia/Jakarta'),
+        end: moment.utc(proker.End_Date).tz('Asia/Jakarta'),
+        color: "#007bff",
+      }));
     const handleSelectEvent = (event) => {
         Swal.fire({
           title: event.title,
-          text: `Start: ${event.start.toLocaleString("id-ID", options)} \n End: ${event.end.toLocaleString("id-ID", options)}`,
+          text: `Start: ${new Date(event.start).toLocaleString("id-ID", options)} \n End: ${new Date(event.end).toLocaleString("id-ID", options)}`,
           icon: 'info',
           confirmButtonText: 'Ok'
         });
@@ -55,12 +61,7 @@ function CardDepart({Departemen}){
                 </Link>
                 <Calendar
                     localizer={localizer}
-                    events={Proker.map(proker => ({
-                        title: proker.Title,
-                        start: new Date(proker.Start_Date),
-                        end: new Date(proker.End_Date),
-                        color: "#007bff",
-                      }))}
+                    events={events}
                     onSelectEvent={handleSelectEvent}
                     startAccessor="start"
                     endAccessor="end"
@@ -95,5 +96,5 @@ function CardDepart({Departemen}){
 
 export default CardDepart;
 CardDepart.propTypes = {
-    Departemen: PropTypes.arrayOf(PropTypes.object).isRequired
+    Departemen: PropTypes.string.isRequired
   };
