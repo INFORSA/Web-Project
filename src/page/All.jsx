@@ -20,9 +20,9 @@ function All(){
         <Helmet>
             <title>Semua Artikel</title>
         </Helmet>
-        <div className="text-center text-4xl font-bold">Artikel Kegiatan</div>
-        <div className='flex justify-evenly items-center w-full'>
-            <div className='w-3/4'>
+        <div className="text-center text-4xl font-bold my-5">Artikel Kegiatan</div>
+        <div className='flex flex-col lg:flex-row justify-evenly items-center w-full'>
+            <div className='w-full lg:w-3/4'>
             {getKonten.slice(0,1).map((item,idx)=>(
                 <div key={idx} className='w-full rounded-lg'>
                 <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full'>
@@ -45,11 +45,11 @@ function All(){
             </div>
             <div className='w-auto m-3'>
             {getKonten.slice(1,4).map((item,idx)=>(
-                <div key={idx} className='w-full rounded-lg m-2 flex justify-evenly'>
-                <div className='rounded-lg flex justify-center items-center'>
-                    <LazyLoadImage loading='lazy' className="w-60 object-cover h-full" src={`/uploads/${item.Gambar}`} alt="" />
+                <div key={idx} className='w-80 lg:w-full rounded-lg m-1 flex justify-around'>
+                <div className='rounded-lg w-1/4'>
+                    <LazyLoadImage loading='lazy' className="object-cover h-full w-60" src={`/uploads/${item.Gambar}`} alt="" />
                 </div>
-                <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-full'>
+                <div className='rounded-b-lg pl-2 pt-2 min-h-16 w-3/4'>
                     <h3 className='text-lg truncate font-semibold'>{item.Judul}</h3>
                     {/* <p className="truncate text-sm font-thin text-slate-600" dangerouslySetInnerHTML={{ __html: item.Isi }}/> */}
                     <div className="flex justify-between items-start text-right">
