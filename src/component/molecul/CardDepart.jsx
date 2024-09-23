@@ -40,8 +40,8 @@ function CardDepart({Departemen}){
     };
     const events = Proker.map(proker => ({
         title: proker.Title,
-        start: moment.utc(proker.Start_Date).tz('Asia/Jakarta'),
-        end: moment.utc(proker.End_Date).tz('Asia/Jakarta'),
+        start: new Date(proker.Start_Date),
+        end: new Date(proker.End_Date),
         color: "#007bff",
       }));
     const handleSelectEvent = (event) => {
