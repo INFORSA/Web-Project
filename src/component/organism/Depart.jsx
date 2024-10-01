@@ -2,6 +2,8 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { fadeIn } from '../../framerMotion/variants';
 
 function Depart() {
   const responsive = {
@@ -30,13 +32,13 @@ function Depart() {
   return (
     <div className='min-h-screen bg-white flex justify-center'>
     <div className='container flex flex-col md:flex-row items-center'>
-    <div className='text-3xl font-semibold font-serif'>
+    <motion.div variants={fadeIn("right", 0.2)} initial="hidden" whileInView={"show"} viewport={{once: false, amount: 0.7}} className='text-3xl font-semibold font-serif'>
       Departemen <br /> & <br /> Biro
       <br />
       <div className='text-xl font-light'>
       Kerangka kerja membantu menjalankan kepengurusan dalam menuntaskan program kerja.
       </div>
-    </div>
+    </motion.div>
     <Carousel
         responsive={responsive}
         infinite={true}

@@ -1,112 +1,46 @@
-import image from '../../assets/bg-landing.png';
-import image1 from '../../assets/flag.png';
-import image2 from '../../assets/flag2.png';
-import image3 from '../../assets/flag3.png';
+import image from '../../assets/bg-flag.png';
 import { motion } from "framer-motion";
-import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
-import { scaleDown, slideLeft, slideRight, viewportSlideLeft, viewportSlideRight } from "../../framerMotion";
-import { useState } from 'react';
+import { scaleDown, slideDown } from "../../framerMotion";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-scroll';
 
 function LandingPage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? 3 : currentSlide - 1);
-  };
-  const nextSlide = () => {
-    setCurrentSlide(currentSlide === 3 ? 0 : currentSlide + 1);
-  };
   return (
-    <motion.div {...scaleDown} id='/' className="w-full h-auto overflow-x-hidden overflow-y-hidden">
-      <div className="w-screen h-[650px] relative">
-        <div
-          style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
-          className="flex w-[400vw] h-full transition-transform duration-500"
-        >
-          <div className='w-auto h-full flex items-center justify-center'>    
-            <motion.div {...viewportSlideLeft}>
-              <LazyLoadImage loading='lazy' className='object-cover' src={image1} alt="" />
-            </motion.div>
-            <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
-            <motion.div {...viewportSlideRight}>
-              <div className='text-2xl lg:text-7xl text-center font-serif md:text-xl  font-bold'>
-                Information System Association
-              </div>
-              <p className='text-center text-xs lg:text-2xl'>
-                Bersatu Untuk Berjaya!
-              </p>
-            </motion.div>
-            </div>
+    <motion.div {...scaleDown} id='/' className="overflow-x-hidden overflow-y-hidden">
+      <motion.div {...slideDown} className='m-3 relative'>
+        <LazyLoadImage className='rounded-md object-cover h-[75vh] lg:h-full' src={image} alt="" />
+        <div className='absolute top-[30vh] mx-2 right-3 text-white'>
+          <h1 className='font-bold text-4xl lg:text-7xl'>INFORSA <span className='text-xs lg:text-3xl font-light'>(Information System Association)</span></h1>
+          <p className='font-light text-md lg:text-2xl mb-3'>Bersatu Untuk Berjaya!</p>
+          <div className='flex gap-3 items-center'>
+            <a className='font-light text-white bg-blue-900 py-2 px-4 rounded-md hover:bg-blue-700 hover:font-bold' href="https://www.instagram.com/inforsa_unmul/">
+              Go to Instagram
+              <FontAwesomeIcon className='mx-2' style={{ fontSize: '1em' }} icon={faArrowRight} />
+            </a>
+            <button>
+              <Link 
+                to="About"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500} clLinkssName='text-white bg-transparent'>More Info
+              </Link>
+            </button>
           </div>
-          <div className='w-auto h-full flex items-center justify-start'>    
-            <motion.div {...viewportSlideLeft}>
-              <LazyLoadImage loading='lazy' className='object-cover' src={image} alt="" />
-            </motion.div>
-            <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
-            <motion.div {...viewportSlideRight}>
-              <div className='text-4xl lg:text-9xl sm:text-lg md:text-xl  font-bold'>
-                INFORSA 
-                <span className='ml-2 text-sm lg:text-lg text-capt font-light'>
-                  .since 2019
-                </span>
-              </div>
-              <p className='text-left text-xs lg:text-2xl'>
-                We are Family of Information System
-              </p>
-            </motion.div>
+          <div className='flex gap-4 my-3'>
+            <div>
+              <h1 className='text-xl lg:text-3xl font-light'>5 Years</h1>
+              <h2 className='text-sm lg:text-xl font-bold'>Journey</h2>
             </div>
-          </div>
-          <div className='w-auto h-full flex items-center justify-start'>    
-            <motion.div {...viewportSlideLeft}>
-              <LazyLoadImage loading='lazy' className='object-cover' src={image2} alt="" />
-            </motion.div>
-            <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
-            <motion.div {...viewportSlideRight}>
-              <div className='text-4xl lg:text-9xl sm:text-lg md:text-xl  font-bold'>
-                Sistem Informasi 
-                <span className='ml-2 text-sm lg:text-lg text-capt font-light'>
-                  .SI
-                </span>
-              </div>
-              <p className='text-left text-xs lg:text-2xl'>
-                Fakultas Teknik, Universitas Mulawarman
-              </p>
-            </motion.div>
-            </div>
-          </div>
-          <div className='w-auto h-full flex items-center justify-center'>    
-            <motion.div {...viewportSlideLeft}>
-              <LazyLoadImage loading='lazy' className='object-cover' src={image3} alt="" />
-            </motion.div>
-            <div className='bg-caption rounded-md px-10 py-3 text-white absolute'>
-            <motion.div {...viewportSlideRight}>
-              <div className='text-4xl lg:text-9xl sm:text-lg md:text-xl  font-bold'>
-                INFORSANIAN 
-              </div>
-              <p className='text-center text-xs lg:text-2xl'>
-                Selamat Datang di INFORSA
-              </p>
-            </motion.div>
+            <div>
+              <h1 className='text-xl lg:text-3xl font-light'>Since 2019</h1>
+              <h2 className='text-sm lg:text-xl font-bold'>Family of Information System</h2>
             </div>
           </div>
         </div>
-        <div className="absolute w-fit left-0 right-0 mx-auto flex gap-8 bottom-36">
-          <motion.div
-            {...slideRight}
-            onClick={prevSlide}
-            className="w-14 h-12 border-[1px] border-gray-700 flex items-center justify-center hover:cursor-pointer hover:bg-gray-700 hover:text-white active:bg-gray-900 duration-300"
-          >
-            <HiArrowLeft />
-          </motion.div>
-          <motion.div
-            {...slideLeft}
-            onClick={nextSlide}
-            className="w-14 h-12 border-[1px] border-gray-700 flex items-center justify-center hover:cursor-pointer hover:bg-gray-700 hover:text-white active:bg-gray-900 duration-300"
-          >
-            <HiArrowRight />
-          </motion.div>
-        </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

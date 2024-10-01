@@ -1,4 +1,4 @@
-import kabinet from '../../assets/logo.png'
+import kabinet from '../../assets/logo.png';
 
 function Kabinet() {
   return (

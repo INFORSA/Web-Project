@@ -1,10 +1,12 @@
 import 'react-multi-carousel/lib/styles.css';
+import { motion } from "framer-motion";
+import { fadeIn } from '../../framerMotion/variants';
 
 function VisiMisi() {
 
   return (
     <div className='bg-white flex flex-col lg:flex-row items-start justify-center h-full w-full rounded-lg shadow-xl p-5 mt-5'>
-      <div className='text-center text-3xl font-semibold rounded-md'>
+      <motion.div variants={fadeIn("right", 0.2)} initial="hidden" whileInView={"show"} viewport={{once: false, amount: 0.7}} className='text-center text-3xl font-semibold rounded-md'>
           <h1 className='text-5xl font-bold font-serif'>
             Visi
           </h1>
@@ -13,8 +15,8 @@ function VisiMisi() {
           mengembangkan potensi mahasiswa melalui kolaborasi dan inovasi serta menciptakan kualitas 
           sumber daya yang responsif terhadap pembaruan.
         </p>
-      </div>
-      <div className='flex text-center text-3xl font-semibold mx-3'>
+      </motion.div>
+      <motion.div variants={fadeIn("left", 0.2)} initial="hidden" whileInView={"show"} viewport={{once: false, amount: 0.7}} className='flex text-center text-3xl font-semibold mx-3'>
         <div>
           <h1 className='text-5xl font-bold font-serif'>
             Misi
@@ -31,7 +33,7 @@ function VisiMisi() {
             </li>
           </ol>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
