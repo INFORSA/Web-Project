@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import About from './component/organism/About'
 import Article from './component/organism/Article'
@@ -9,7 +9,7 @@ import Header from './component/molecul/Header'
 import Highlight from './component/organism/Highlight'
 import Event from './component/organism/Event'
 import Kabinet from './component/organism/Kabinet'
-import Question from './component/organism/Question'
+// import Question from './component/organism/Question'
 import VisiMisi from './component/organism/VisiMisi'
 import LandingPage from './component/organism/landingPage'
 import Kpsdm from './page/depart/Kpsdm'
@@ -29,6 +29,7 @@ import UpEvent from './page/UpEvent'
 import { useEffect } from 'react'
 import Arsip from './page/Arsip'
 import { Helmet } from 'react-helmet'
+import Eval from './page/evaluation/Eval'
 // import Galery from './component/organism/Galery'
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
               <BadanInti/>
               <Depart/>
               <Article/>
-              <Question/>
+              {/* <Question/> */}
             </div>
           }/>
           <Route path='/BPI' element={<Bpi/>}/>
@@ -82,6 +83,9 @@ function App() {
           <Route path='/All' element={<All/>}/>
           <Route path='/MoreEvent' element={<MoreEvent/>}/>
           <Route path='/Artikel/:id' element={<Detail/>}/>
+          <Route path='/Form' element={<Eval/>}/>
+          <Route path='/*' element={<Navigate to='/'/>}/>
+          <Route path='*' element={<Navigate to='/'/>}/>
           {isLoggedIn?(
             <>
               <Route path='/UpEvent' element={<UpEvent/>}/>

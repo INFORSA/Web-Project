@@ -107,7 +107,7 @@ function Header() {
                 className="justify-center font-medium text-black transition duration-500 ease-in-out transform hover:scale-105 hover:text-gray-400"
                 onClick={toggleDropdown}
               >
-                Dept/Biro
+                More
               </a>
               <div
                 className={`origin-top-right absolute left-0 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${isDropdownOpen ? 'block' : 'hidden'}`}

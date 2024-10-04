@@ -13,13 +13,13 @@ function Event(){
             icon: "info"
           })
     }
-    const getAspirasi = () =>{
-        Swal.fire({
-            title: "Ruang Konsultasi dan Aspirasi",
-            text: "Tahap Pengembangan",
-            icon: "info"
-          })
-    }
+    // const getAspirasi = () =>{
+    //     Swal.fire({
+    //         title: "Ruang Konsultasi dan Aspirasi",
+    //         text: "Tahap Pengembangan",
+    //         icon: "info"
+    //       })
+    // }
     const getStore = () =>{
         Swal.fire({
             title: "INFORSA STORE",
@@ -67,13 +67,13 @@ function Event(){
             </div>
         </div>
         <div className="container grid lg:grid-cols-2 md:grid-cols-2 min-h-sreen lg:h-72 w-full">
-            <div onClick={getAspirasi} className="bg-sky-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto">
+            <div className="bg-sky-800 border-3 border-black p-4 w-full text-white flex flex-col justify-evenly items-start mx-auto">
                 <div>
-                    <h1 className="font-semibold text-4xl">COMING SOON</h1>
-                    <h2 className="text-lg">Ruang Konsultasi dan Aspirasi Mahasiswa</h2>
+                    <h1 className="font-semibold text-4xl">Ruang Konsultasi dan Aspirasi Mahasiswa</h1>
+                    <h2 className="text-lg"></h2>
                     <h3 className="text-sm font-thin text-slate-400">INFORSA 2024</h3>
                 </div>
-                <Link className="text-white text-3xl">See...</Link>
+                <Link to='/Form' className="text-white text-3xl">See...</Link>
             </div>
             <div onClick={getStore} className="bg-cyan-950 border-3 border-black w-full text-white flex justify-center items-center mx-auto">
                 <FontAwesomeIcon style={{ fontSize: '3em' }} icon={faBasketShopping} />
