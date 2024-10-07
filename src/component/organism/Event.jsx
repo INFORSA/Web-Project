@@ -39,8 +39,8 @@ function Event(){
     return(
         <div className="mb-5 bg-white py-5">
         <div className="container grid lg:grid-cols-3 md:grid-cols-2 min-h-sreen lg:h-72 w-full">
-            <div className="bg-blue-950 border-3 border-black border-3 border-black w-full text-white flex justify-center items-center mx-auto">
-                <div>
+            <div className="py-3 bg-blue-950 border-3 border-black border-3 border-black w-full text-white flex justify-center items-center mx-auto">
+                <div className="lg:ml-0 ml-3">
                     <img src="" alt="" />
                     <h1 className="font-bold">INFORSA</h1>
                     <p className="text-sm font-light text-center">2024</p>
@@ -75,7 +75,7 @@ function Event(){
                 </div>
                 <Link to='/Form' className="text-white text-3xl">See...</Link>
             </div>
-            <div onClick={getStore} className="bg-cyan-950 border-3 border-black w-full text-white flex justify-center items-center mx-auto">
+            <div onClick={getStore} className="bg-cyan-950 border-3 border-black w-full text-white flex justify-center items-center mx-auto py-3">
                 <FontAwesomeIcon style={{ fontSize: '3em' }} icon={faBasketShopping} />
                 <div className="mx-3">
                     <img src="" alt="" />
