@@ -1,16 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
-import About from './component/organism/About'
+import Structur from './page/Structur'
 import Article from './component/organism/Article'
-import BadanInti from './component/organism/BPI'
-import Depart from './component/organism/Depart'
+import About from './component/organism/About'
 import Footer from './component/molecul/Footer'
 import Header from './component/molecul/Header'
 import Highlight from './component/organism/Highlight'
 import Event from './component/organism/Event'
-import Kabinet from './component/organism/Kabinet'
-// import Question from './component/organism/Question'
-import VisiMisi from './component/organism/VisiMisi'
 import LandingPage from './component/organism/landingPage'
 import Kpsdm from './page/depart/Kpsdm'
 import Rppm from './page/depart/Rppm'
@@ -55,20 +51,16 @@ function App() {
       <div className='pt-20'>
         <Routes>
           <Route exact path='/' element={
-            <div className='bg-main'>
+            <div className=''>
               <Helmet>
                 <title>Information System Association</title>
               </Helmet>
               <LandingPage/>
-              <About/>
               <Event/>
               <Highlight/>
-              {/* <Galery/> */}
-              <Kabinet/>
-              <VisiMisi/>
-              <BadanInti/>
-              <Depart/>
+              <About/>
               <Article/>
+              {/* <Galery/> */}
               {/* <Question/> */}
             </div>
           }/>
@@ -83,6 +75,7 @@ function App() {
           <Route path='/All' element={<All/>}/>
           <Route path='/MoreEvent' element={<MoreEvent/>}/>
           <Route path='/Artikel/:id' element={<Detail/>}/>
+          <Route path='/About' element={<Structur/>}/>
           <Route path='/Form' element={<Eval/>}/>
           <Route path='/*' element={<Navigate to='/'/>}/>
           <Route path='*' element={<Navigate to='/'/>}/>

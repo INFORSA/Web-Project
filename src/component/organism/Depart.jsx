@@ -24,11 +24,11 @@ function Depart() {
       slidesToSlide: 1,
     },
   };
-  const [selectedKPSDM, setselectedKPSDM] = useState('KPSDM');
-  const [selectedRPPM, setselectedRPPM] = useState('RPPM');
-  const [selectedKOMINFO, setselectedKOMINFO] = useState('KOMINFO');
-  const [selectedINKREF, setselectedINKREF] = useState('INKREF');
-  const [selectedRELEKAT, setselectedRELEKAT] = useState('RELEKAT');
+  const [selectedKPSDM, setselectedKPSDM] = useState('');
+  const [selectedRPPM, setselectedRPPM] = useState('');
+  const [selectedKOMINFO, setselectedKOMINFO] = useState('');
+  const [selectedINKREF, setselectedINKREF] = useState('');
+  const [selectedRELEKAT, setselectedRELEKAT] = useState('');
   return (
     <div className='min-h-screen bg-white flex justify-center'>
     <div className='container flex flex-col md:flex-row items-center'>
@@ -47,7 +47,7 @@ function Depart() {
         className='container w-full'
     >
         <div onMouseEnter={() => setselectedKPSDM('Departemen KPSDM adalah departemen yang bertugas meregenerasi kader dan mengembangkan sumber daya mahasiswa Sistem Informasi.')}
-            onMouseLeave={() => setselectedKPSDM('KPSDM')} 
+            onMouseLeave={() => setselectedKPSDM('')} 
             >
           <Link to='KPSDM'
           className="dept dept-kpsdm border border-black text-center bg-gray-300 w-68 h-96 flex justify-center items-center p-7 font-base text-3xl">
@@ -55,26 +55,26 @@ function Depart() {
           </Link>
         </div>
         <div onMouseEnter={() => setselectedRPPM('Departmen ini bertugas untuk mendukung akademik maupun non akademik serta mengembangkan potensi minat bakat mahasiswa informasi')}
-            onMouseLeave={() => setselectedRPPM('RPPM')} 
+            onMouseLeave={() => setselectedRPPM('')} 
             >
           <Link to='RPPM' className="dept rppm border border-black text-center bg-gray-300 w-68 h-96 flex justify-center items-center p-7 font-base text-3xl">
             {selectedRPPM}
           </Link>
         </div>
         <div onMouseEnter={() => setselectedKOMINFO('Departemen yang bertanggung jawab untuk menciptakan dan memproduksi berbagai jenis konten seperti menulis dan melaporkan berita atau informasi')}
-            onMouseLeave={() => setselectedKOMINFO('KOMINFO')} >
+            onMouseLeave={() => setselectedKOMINFO('')} >
           <Link to='KOMINFO' className="dept kominfo border border-black text-center bg-gray-300 w-68 h-96 flex justify-center items-center p-7 font-base text-3xl">
               {selectedKOMINFO}
           </Link>
         </div>
         <div onMouseEnter={() => setselectedRELEKAT('Departemen yang bertugas untuk mengurus semua hal yang berkaitan dengan kelembagaan dan masyarakat di luar Sistem Informasi dan INFORSA.')}
-            onMouseLeave={() => setselectedRELEKAT('RELEKAT')}>
+            onMouseLeave={() => setselectedRELEKAT('')}>
           <Link to='RELEKAT' className="dept relekat border border-black text-center bg-gray-300 w-68 h-96 flex justify-center items-center p-7 font-base text-3xl">
               {selectedRELEKAT}
           </Link>
         </div>
         <div onMouseEnter={() => setselectedINKREF('Biro Industri Kreatif adalah suatu badan yang membantu meningkatkan finansial organisasi, dalam hal lain juga untuk mengembangkan jiwa kewirausahaan mahasiswa.')}
-            onMouseLeave={() => setselectedINKREF('INKREF')}>
+            onMouseLeave={() => setselectedINKREF('')}>
           <Link to='INKREF' className="dept dept-inkref border border-black text-center bg-gray-300 w-68 h-96 flex justify-center items-center p-7 font-base text-3xl">
             {selectedINKREF}
           </Link>

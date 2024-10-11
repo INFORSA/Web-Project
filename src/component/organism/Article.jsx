@@ -16,7 +16,7 @@ function Article(){
       };
     return(
     <div className="bg-white">
-        <div className="text-left font-serif container text-4xl font-bold">Publikasi Kegiatan</div>
+        <div className="text-left font-serif container text-4xl font-bold">Tentang Kegiatan</div>
         <div className="container grid grid-cols-1 gap-5 mx-auto lg:grid-cols-3 md:grid-cols-2 my-3">
             {getKonten.slice(0,3).map((item,idx)=>(
                 <div key={idx} className='bg-gray-500 w-full rounded-lg transform transition-transform duration-300 ease-in-out hover:scale-110'>

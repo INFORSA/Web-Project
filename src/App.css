@@ -16,14 +16,15 @@
     background-size: cover;
 }
 .dept-kpsdm{
-    background-image: url(./assets/family.jpg);
-    background-size: contain;
+    background-image: url(./assets/Galery/Depart/1.png);
+    background-size: cover;
+    background-position: center;
     
 }
 .dept-inkref{
-    background-image: url(./assets/INKREF.jpg);
-    background-size: contain;
-    
+    background-image: url(./assets/Galery/Depart/13.png);
+    background-size: cover;
+    background-position: center;    
 }
 .personalia{
     background-image: url(./assets/personalia.jpeg);
@@ -31,18 +32,19 @@
     
 }
 .relekat{
-    background-image: url(./assets/relekat.jpg);
-    background-size: contain;
-    
+    background-image: url(./assets/Galery/Depart/4.png);
+    background-size: cover;
+    background-position: center;    
 }
 .rppm{
-    background-image: url(./assets/rkmb.jpg);
-    background-size: contain;
-    
+    background-image: url(./assets/Galery/Depart/7.png);
+    background-size: cover;
+    background-position: center;
 }
 .kominfo{
-    background-image: url(./assets/kominfo.jpg);
-    background-size: contain;
+    background-image: url(./assets/Galery/Depart/10.png);
+    background-size: cover;
+    background-position: center;
 }
 .dept{
     font-weight: bold;
@@ -110,6 +112,14 @@
     background-position:center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+.bg-landing{
+    background-image: url('./assets/family-si.png');
+    background-size: cover;
+    background-position: center
+}
+.bg-landing-mix{
+    background-image: linear-gradient(to left, rgba(255,0,0,0), #1A1B3F);
 }
 @media (max-width:769px) {
     .bg-login{

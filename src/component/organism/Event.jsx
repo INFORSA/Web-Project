@@ -38,7 +38,7 @@ function Event(){
       };
     return(
         <div className="mb-5 bg-white py-5">
-        <div className="container grid lg:grid-cols-3 md:grid-cols-2 min-h-sreen lg:h-72 w-full">
+        <div className="m-4 grid lg:grid-cols-3 min-h-sreen lg:h-72">
             <div className="py-3 bg-blue-950 border-3 border-black border-3 border-black w-full text-white flex justify-center items-center mx-auto">
                 <div className="lg:ml-0 ml-3">
                     <img src="" alt="" />

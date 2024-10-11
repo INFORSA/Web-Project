@@ -85,17 +85,13 @@ function Header() {
           >
             Home
           </Linkdom>
-          <Linkdom
+          <Link
             href='#'
-            to="About"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
+            to="/About"
             className="block lg:inline-block text-black hover:text-gray-400 mx-4"
           >
             About
-          </Linkdom>
+          </Link>
           <div
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
