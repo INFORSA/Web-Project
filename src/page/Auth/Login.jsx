@@ -1,59 +1,46 @@
 import { TextField, Button, InputAdornment, IconButton } from "@mui/material";
-import image from '../assets/inforsa.png'
-import { useEffect, useState } from "react";
+import image from '../../assets/inforsa.png'
+import { useContext, useEffect, useState } from "react";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
-import CryptoJS from "crypto-js";
 import { motion } from "framer-motion";
-import { scaleDown } from "../framerMotion";
+import { scaleDown } from "../../framerMotion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { AuthContext } from "../../context/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 function Login(){
     useEffect(()=>{
-        getAcc();
         window.scrollTo(0, 0);
     },[])
-    const secretKey = import.meta.env.VITE_SECRETKEY
+    // const secretKey = import.meta.env.VITE_SECRETKEY
+    const { login } = useContext(AuthContext);
     const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
-    const [Acc,setAcc]= useState([]);
-    const getAcc = async () => {
-        const response = await Axios.get(`${import.meta.env.VITE_ACC}`);
-        setAcc(response.data);
-      };
-    const generateToken = () => {
-        const timestamp = Date.now().toString();
-        const randomString = Math.random().toString(36).substring(7);
-        const expirationTime = Date.now() + 60 * 60 * 1000;
-        const tokenPayload = { timestamp, randomString, expirationTime };
-        localStorage.setItem('expiredTime', expirationTime);
-        const token = CryptoJS.HmacSHA256(JSON.stringify(tokenPayload), secretKey).toString(CryptoJS.enc.Hex);
-      
-        return token;
-      };
-    const handleProcess = async () =>{
-        const found = Acc.find(item => item.Username === Username && item.Pass === Password);
-        const generatedToken = generateToken();
-        const Token = generatedToken
-        const ID = found.ID_Admin
-        const requestData = {
-            userId: ID,
-            userToken: Token
-          };
-        fetch(`${import.meta.env.VITE_LOGIN}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestData),
-        })
-        .then(response => response.json())
 
-        if(found){
-            localStorage.setItem('token', generatedToken)
-            localStorage.setItem('ID', found.ID_Admin)
+    const handleProcess = async () =>{
+        if (!Username || !Password) {
+            Swal.fire({
+                title: "Data Invalid",
+                icon: "error",
+              });
+            return;
+          }
+      
+          try {
+            const response = await Axios.post(import.meta.env.VITE_LOGIN, { Username, Password });
+            const { token } = response.data;
+            const decoded = jwtDecode(token);
+            const user = { Username: decoded.Username };
+      
+            const expirationTime = new Date(decoded.exp * 1000);
+            localStorage.setItem("token", token);
+            localStorage.setItem("expirationTime", expirationTime);
+            localStorage.setItem("username", user);
+      
+            login(user);
             try {
                 await Swal.fire({
                     title: "Berhasil Login",
@@ -69,13 +56,16 @@ function Login(){
                     icon: "error"
                 });
             }
-        } else{
             Swal.fire({
-                    title: "Gagal Login",
-                    text: "Terjadi kesalahan saat mencoba login.",
-                    icon: "error"
-                });
-        }
+              title: "Selamat Datang",
+              icon: "success",
+            });
+            } catch (error) {
+                Swal.fire({
+                    title: "Data Invalid",
+                    icon: "error",
+                  });
+            }
     }
     const [showPassword, setShowPassword] = useState(false);
 

@@ -7,7 +7,6 @@ import staff2 from '../../assets/Galery/Depart/3.png';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 import CardDepart from "../../component/molecul/CardDepart";
-// import GrafikCapaian from "../../component/molecul/Grafik";
 
 function Kpsdm(){
     return(

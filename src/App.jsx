@@ -14,7 +14,8 @@ import Relekat from './page/depart/Relekat'
 import Kominfo from './page/depart/Kominfo'
 import Inkref from './page/depart/Inkref'
 import Upload from './page/Upload'
-import Login from './page/Login'
+// import Login from './page/Login'
+import Login from './page/Auth/Login'
 import Proker from './page/Proker'
 import Store from './page/Store'
 import Detail from './page/Detail'
@@ -38,10 +39,9 @@ function App() {
   const checkTokenValidity = () => {
       const storedToken = localStorage.getItem('expiredTime');
       if (isLoggedIn) {
-          if (storedToken < Date.now()) {
+          if (storedToken > Date.now()) {
               localStorage.removeItem('token');
               localStorage.removeItem('expiredTime');
-              localStorage.removeItem('ID');
           }
       }
   };
@@ -77,20 +77,18 @@ function App() {
           <Route path='/Artikel/:id' element={<Detail/>}/>
           <Route path='/About' element={<Structur/>}/>
           <Route path='/Form' element={<Eval/>}/>
-          <Route path='/*' element={<Navigate to='/'/>}/>
-          <Route path='*' element={<Navigate to='/'/>}/>
           {isLoggedIn?(
             <>
+              <Route path='/*' element={<Navigate to='/'/>}/>
+              <Route path='*' element={<Navigate to='/'/>}/>
               <Route path='/UpEvent' element={<UpEvent/>}/>
               <Route path='/Proker' element={<Proker/>}/>
               <Route path='/Upload' element={<Upload/>}/>
               <Route path='/Arsip' element={<Arsip/>}/>
             </>
             ):(<>
-              <Route path='/UpEvent'  element={<Login/>}/>
-              <Route path='/Proker' element={<Login/>}/>
-              <Route path='/Arsip' element={<Login/>}/>
-              <Route path='/Upload' element={<Login/>}/>
+              <Route path='/*' element={<Navigate to='/Login'/>}/>
+              <Route path='*' element={<Navigate to='/Login'/>}/>
             </>
           )}
         </Routes>

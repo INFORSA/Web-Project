@@ -6,7 +6,7 @@ import { Link } from 'react-scroll';
 
 function LandingPage() {
   return (
-    <motion.div {...scaleDown} id='/' className='bg-landing m-2 h-80 flex items-center text-white rounded-lg'>
+    <motion.div {...scaleDown} id='/' className='bg-landing mt-3 mx-2 h-80 flex items-center text-white rounded-lg'>
       <motion.div {...slideDown} className='h-full w-full pl-3 lg:pl-16 lg:pt-7 pt-16 bg-landing-mix rounded-lg'>
           <div className="md:text-center sm:text-center lg:text-left">
             <div className="">

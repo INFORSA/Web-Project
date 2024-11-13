@@ -19,7 +19,7 @@ function Highlight() {
     <Carousel fade>
       {getKonten.slice(0,3).map((item,idx)=>(
         <Carousel.Item key={idx}>
-          <LazyLoadImage className='object-cover h-96 w-full' src={`/uploads/${item.Gambar}`} alt="" />
+          <LazyLoadImage className='object-cover object-center h-96 lg:h-[70vh] w-full' src={`/uploads/${item.Gambar}`} alt="" />
           <Carousel.Caption className='bg-caption'>
             <h3>{item.Judul}</h3>
           </Carousel.Caption>

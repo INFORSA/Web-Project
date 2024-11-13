@@ -4,7 +4,7 @@ import { fadeIn } from '../../framerMotion/variants';
 
 function About(){
     return(
-        <div id='About' className='flex flex-col px-5 sm:flex-row justify-evently text-center rounded-lg shadow-xl bg-white'>
+        <div id='About' className='flex flex-col pb-7 px-5 sm:flex-row justify-evently text-center rounded-lg shadow-xl bg-white'>
             <img className='h-80' src={logo} alt="" />    
             <motion.div variants={fadeIn("right", 0.2)} initial="hidden" whileInView={"show"} viewport={{once: false, amount: 0.7}} className='flex items-center justify-start text-left'>
                 <div>

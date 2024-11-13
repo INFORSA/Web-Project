@@ -8,7 +8,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 import CardDepart from "../../component/molecul/CardDepart";
 
-
 function Inkref(){
     return(
         <div className="container">

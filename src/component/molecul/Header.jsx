@@ -74,17 +74,19 @@ function Header() {
         </div>
         <div className={`lg:flex md:flex lg:flex-grow md:flex-grow md:ml-5 lg:ml-12 mt-2 sm:mt-0 lg:mb-2 lg:block ${isNav ? 'block w-screen pr-12 text-center' : 'hidden text-left'}`}>
         <div className='h-28 md:h-full lg:h-full w-full inline-block mt-2 flex justify-center ml-0 lg:ml-40 gap-3 px-0 flex-col md:flex-row lg:flex-row'>
-          <Linkdom
-            href='#'
-            to="/"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            className="block lg:inline-block text-black hover:text-gray-400"
-          >
-            Home
-          </Linkdom>
+          <Link to='/'>
+            <Linkdom
+              href='#'
+              to="/"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="block lg:inline-block text-black hover:text-gray-400"
+            >
+              Home
+            </Linkdom>
+          </Link>
           <Link
             href='#'
             to="/About"

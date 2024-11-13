@@ -4,6 +4,8 @@ import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { jwtDecode } from "jwt-decode";
+import Axios from 'axios';
 
 function Upload() {
   const [judul, setJudul] = useState("");
@@ -12,6 +14,8 @@ function Upload() {
   const [gambar, setGambar] = useState(null);
   const [isi, setIsi] = useState("");
   const Token = localStorage.getItem('token');
+  const decoded = jwtDecode(Token);
+  const user = { Username: decoded.Username };
   const handleUpload = (e) => {
     const selectedFile = e.target.files[0];
   
@@ -28,9 +32,14 @@ function Upload() {
     }
   };
 
+  const [Acc,setAcc]= useState([]);
+  const getAcc = async () => {
+      const response = await Axios.get(`${import.meta.env.VITE_ACC}/${user.Username}`);
+      setAcc(response.data[0].ID_Admin);
+    };
   const handleInsert = async () => {
     const formData = new FormData();
-    formData.append("Token", Token);
+    formData.append("ID_Admin", Acc);
     formData.append("Judul", judul);
     formData.append("Waktu", waktuUpload.toISOString().substring(0, 16));
     formData.append("Depart", jenis);
@@ -38,7 +47,7 @@ function Upload() {
     formData.append("Isi", isi);
 
     try {
-      const response = await fetch("https://api.inforsa-unmul.org/api/insert", {
+      const response = await fetch(`${import.meta.env.VITE_API}/api/insert`, {
         method: "POST",
         body: formData,
       });
@@ -61,6 +70,7 @@ function Upload() {
   };
 
   useEffect(() => {
+    getAcc();
     window.scrollTo(0, 0);
   }, []);
 
