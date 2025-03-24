@@ -29,7 +29,7 @@ function LandingPage() {
               </div>
               <div className='flex justify-start md:justify-center text-left lg:justify-start gap-4 my-3 hidden lg:inline-flex'>
                 <div>
-                  <h1 className='text-xl lg:text-3xl font-light'>5 Years</h1>
+                  <h1 className='text-xl lg:text-3xl font-light'>6 Years</h1>
                   <h2 className='text-sm lg:text-xl font-bold'>Journey</h2>
                 </div>
                 <div>
